@@ -1,0 +1,90 @@
+{
+  "ga": "UA-4264877-1",
+  "domain": "https://www.lenstore.co.uk",
+  "url": "https://www.lenstore.co.uk/research/skeleton",
+  "baseUrl": {
+    "en": "https://www.lenstore.co.uk/research/skeleton",
+    "es": "https://www.lenstore.es/estudio/skeleton",
+    "it": "https://www.lenstore.it/ricerca/skeleton",
+    "de": "https://www.lenstore.de/forschung/skeleton"
+  },
+  "languages": {
+    "en": ["Spanish", "Italian", "German"],
+    "es": ["Reino Unido", "Italia", "Alemania"],
+    "it": ["Regno Unito", "Spagna", "Germania"],
+    "de": ["Vereinigtes Königreich", "Spanien", "Italien"]
+  },
+  "locale": "en",
+  "lang": "en-GB",
+  "ogLocale": "en_GB",
+  "twitter": "Lenstore",
+  "title": "Lenstore Skeleton",
+  "description": "Skeleton project for Lenstore.",
+  "labels": "Any copy that would be used in the app will go in this file. You will receive a copy.json for each locale.",
+  "label1": "...",
+  "label2": "...",
+  "label3": "...",
+  "headerLinks": [{
+      "label": "Contact Lenses",
+      "url": "https://www.lenstore.co.uk/contact-lenses"
+    }, {
+      "label": "Daily Disposables",
+      "url": "https://www.lenstore.co.uk/daily-disposables"
+    }, {
+      "label": "Two Weekly Disposables",
+      "url": "https://www.lenstore.co.uk/two-weekly-disposables"
+    }, {
+      "label": "Monthly Disposables",
+      "url": "https://www.lenstore.co.uk/monthly-disposables"
+    }, {
+      "label": "Extended Wear Lenses",
+      "url": "https://www.lenstore.co.uk/extended-wear-lenses"
+    }, {
+      "label": "Toric/Astigmatism Lenses",
+      "url": "https://www.lenstore.co.uk/toric-lenses"
+    }, {
+      "label": "Multifocal Lenses",
+      "url": "https://www.lenstore.co.uk/multifocal-lenses"
+    }, {
+      "label": "Solutions & Accessories",
+      "url": "https://www.lenstore.co.uk/solutions-accessories"
+    }, {
+      "label": "Coloured Contact Lenses",
+      "url": "https://www.lenstore.co.uk/coloured-contact-lenses"
+    }, {
+      "label": "Cheap Contact Lenses",
+      "url": "https://www.lenstore.co.uk/cheap-contact-lenses"
+    }
+  ],
+  "footerLinks": {
+    "row1": [{
+        "label": "About Us",
+        "url": "https://www.lenstore.co.uk/about-us"
+      }, {
+        "label": "Contact Us",
+        "url": "https://www.lenstore.co.uk/contact-us"
+      }, {
+        "label": "Terms and Conditions",
+        "url": "https://www.lenstore.co.uk/terms-conditions"
+      }, {
+        "label": "Privacy Policy & Cookies",
+        "url": "https://www.lenstore.co.uk/privacy"
+      }
+    ],
+    "row2": [{
+        "label": "Lenstore Spain",
+        "url": "https://www.lenstore.es/"
+      }, {
+        "label": "Lenstore Italy",
+        "url": "https://www.lenstore.it/"
+      }, {
+        "label": "Lenstore Germany",
+        "url": "https://www.lenstore.de/"
+      }, {
+        "label": "Lenstore France",
+        "url": "https://www.lenstore.fr/"
+      }
+    ]
+  },
+  "copyright": ["Lenstore.co.uk. Company registration number: 51990. VAT No./Local Tax No. 106 3206 60.", "Copyright © 2020. All rights reserved."]
+}

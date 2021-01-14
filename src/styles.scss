@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin button-padding {
+  padding: 0.5rem 1rem;
+}
+
+.CitySelector {
+  display: flex;
+}
+
+.ConditionSelector {
+  max-width: 10rem;
+  background: rgba(128, 128, 128, 0.219);
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  .selected {
+    cursor: pointer;
+    @include button-padding;
+    text-transform: capitalize;
+    border: yellow 1px solid;
+  }
+
+  .dropdown {
+    margin: 0;
+    display: none;
+    max-height: 10rem;
+    overflow-y: scroll;
+    border: yellow 1px solid;
+
+    &.--isOpen {
+      display: block;
+    }
+  }
+
+  .condition-item {
+    margin: 0;
+    cursor: pointer;
+    list-style: none;
+    text-transform: capitalize;
+    @include button-padding;
+
+    &:hover {
+      background: rgba(128, 128, 128, 0.5);
+    }
+  }
+}
