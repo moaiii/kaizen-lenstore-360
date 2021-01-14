@@ -1,36 +1,183 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 1rem;
 }
+
+$mobile: 550px;
+$color-haze: rgba(128, 128, 128, 0.219);
 
 @mixin button-padding {
   padding: 0.5rem 1rem;
 }
 
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+.Layout {
+  @include mobile {
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+  }
+}
+
+.Gallery {
+  position: relative;
+  height: 100%;
+  background-color: red;
+
+  .city {
+    height: 100%;
+    z-index: 0;
+  }
+
+  .condition {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    @include mobile {
+      background-position: center;
+      background-size: auto 100%;
+    }
+  }
+}
+
 .CitySelector {
+  z-index: 3;
+  color: white;
   display: flex;
+
+  button {
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile {
+      width: 25%;
+      svg {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  @include mobile {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include button-padding;
+  }
+
+  .city-selected {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .name {
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin: 0.25rem;
+    }
+
+    .position {
+      opacity: 0.7;
+    }
+  }
+}
+
+.TopControls {
+  z-index: 3;
+
+  @include mobile {
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.VrSelector {
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    margin: 0.7rem 0 0 0;
+  }
+
+  p {
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 0 0.5rem 0 0;
+  }
+
+  .toggle {
+    width: 3rem;
+    // border: solid white 1px;
+    background-color: rgba(255, 255, 255, 0.26);
+    height: 1.5rem;
+    border-radius: 0.65rem;
+    position: relative;
+
+    .switch {
+      top: 50%;
+      background-color: white;
+      position: absolute;
+      height: 1.2rem;
+      width: 1.2rem;
+      border-radius: 50%;
+      transform: /* translateX(50%)  */ translateY(-50%);
+
+      right: 2px;
+
+      &.--isVr {
+        left: 2px;
+      }
+    }
+  }
 }
 
 .ConditionSelector {
   max-width: 10rem;
-  background: rgba(128, 128, 128, 0.219);
+  background: $color-haze;
   color: white;
   font-weight: bold;
   letter-spacing: 1px;
 
   .selected {
+    border-radius: 2px;
     cursor: pointer;
     @include button-padding;
     text-transform: capitalize;
-    border: yellow 1px solid;
+    border: white 1px solid;
   }
 
   .dropdown {
+    border-radius: 2px;
     margin: 0;
     display: none;
-    max-height: 10rem;
+    max-height: 20rem;
     overflow-y: scroll;
-    border: yellow 1px solid;
+    border: white 1px solid;
+    border-top: none;
 
     &.--isOpen {
       display: block;

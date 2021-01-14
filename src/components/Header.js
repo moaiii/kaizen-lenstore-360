@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import { icons } from '../assets/assets'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { icons } from '../assets';
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   margin-top: 20px;
   background-color: ${({ theme }) => theme.colors.white};
-`
+`;
 const Logo = styled.a`
   width: 80%;
   height: 100%;
@@ -20,7 +20,7 @@ const Logo = styled.a`
     max-width: 300px;
     margin-bottom: 0;
   }
-`
+`;
 const Nav = styled.div`
   width: 100%;
   margin-top: 20px;
@@ -38,15 +38,15 @@ const Nav = styled.div`
     margin: 0;
     padding: 10px 20px;
     background-color: ${({ theme }) => theme.colors.white};
-    box-shadow: 0px 3px 6px rgba(0,0,0,.3);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
     border: 1px solid #707070;
     position: absolute;
     z-index: 1;
-    opacity: ${props => (props.open ? 1 : 0)};
-    visibility: ${props => (props.open ? 'visible' : 'hidden')};
-    pointer-events: ${props => (props.open ? 'all' : 'none')};
+    opacity: ${(props) => (props.open ? 1 : 0)};
+    visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
+    pointer-events: ${(props) => (props.open ? 'all' : 'none')};
     will-change: opacity, visibility;
-    transition: opacity .3s ease-out, visibility .3s ease-out;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
 
     li {
       margin: 0;
@@ -55,13 +55,13 @@ const Nav = styled.div`
       font-weight: 400;
 
       &:hover {
-        @media(hover: hover) {
+        @media (hover: hover) {
           text-decoration: underline;
         }
       }
     }
   }
-`
+`;
 const NavItem = styled.div`
   display: inline-block;
   padding: 5px 20px;
@@ -81,19 +81,19 @@ const NavItem = styled.div`
     margin-left: 5px;
     display: inline-block;
   }
-`
+`;
 const Breadcrumb = styled.div`
   width: 100%;
   padding: 10px 20px;
   line-height: 1.1;
 
   a {
-    color: #31B4CF;
+    color: #31b4cf;
     font-size: 1.3em;
     text-decoration: none;
 
     &:hover {
-      @media(hover: hover) {
+      @media (hover: hover) {
         text-decoration: underline;
       }
     }
@@ -102,47 +102,69 @@ const Breadcrumb = styled.div`
     color: #636363;
     padding: 0 5px;
   }
-`
+`;
 
 const Header = ({ copy, isDesktop }) => {
-  const { domain, locale, url, title, home, headerLinks } = copy
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const { domain, locale, url, title, home, headerLinks } = copy;
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <Wrapper>
-      <Logo href={domain} title='Lenstore'>
-        <img src={icons[`lenstore${locale}`]} alt='Lenstore'/>
+      <Logo href={domain} title="Lenstore">
+        <img src={icons[`lenstore${locale}`]} alt="Lenstore" />
       </Logo>
       <Nav open={dropdownOpen}>
-        <NavItem onMouseOver={() => setDropdownOpen(true)} onMouseOut={() => setDropdownOpen(false)}>
+        <NavItem
+          onMouseOver={() => setDropdownOpen(true)}
+          onMouseOut={() => setDropdownOpen(false)}
+        >
           {isDesktop ? (
-            <a href={headerLinks[0].url} title={headerLinks[0].label}>{headerLinks[0].label}<span/></a>
+            <a href={headerLinks[0].url} title={headerLinks[0].label}>
+              {headerLinks[0].label}
+              <span />
+            </a>
           ) : (
-            <p>{headerLinks[0].label}<span/></p>
+            <p>
+              {headerLinks[0].label}
+              <span />
+            </p>
           )}
         </NavItem>
-        <ul onMouseOver={() => setDropdownOpen(true)} onMouseOut={() => setDropdownOpen(false)}>
+        <ul
+          onMouseOver={() => setDropdownOpen(true)}
+          onMouseOut={() => setDropdownOpen(false)}
+        >
           {!isDesktop && (
             <li>
-              <a href={headerLinks[0].url} title={headerLinks[0].label}>{headerLinks[0].label}</a>
+              <a href={headerLinks[0].url} title={headerLinks[0].label}>
+                {headerLinks[0].label}
+              </a>
             </li>
           )}
-          {headerLinks.slice(1).map(link => (
+          {headerLinks.slice(1).map((link) => (
             <li key={link.url}>
-              <a href={link.url} title={link.label}>{link.label}</a>
+              <a href={link.url} title={link.label}>
+                {link.label}
+              </a>
             </li>
           ))}
         </ul>
       </Nav>
       <Breadcrumb>
-        <a href={domain} title='Lenstore'>{home}</a>
+        <a href={domain} title="Lenstore">
+          {home}
+        </a>
         <span>&gt;</span>
-        <a href={headerLinks[0].url} title={headerLinks[0].label}>{headerLinks[0].label}</a>
+        <a href={headerLinks[0].url} title={headerLinks[0].label}>
+          {headerLinks[0].label}
+        </a>
         <span>&gt;</span>
-        <a href={url} title={title}>{title}</a>
+        <a href={url} title={title}>
+          {title}
+        </a>
       </Breadcrumb>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

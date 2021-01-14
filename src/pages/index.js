@@ -1,23 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectCondition, nextCity, previousCity } from '../redux';
+import { setVrIsOn, selectCondition, nextCity, previousCity } from '../redux';
 import CitySelector from '../components/selectors/city';
 import ConditionSelector from '../components/selectors/condition';
+import VrSelector from '../components/selectors/vr';
+import Gallery from '../components/Gallery';
 
-const mapDispatch = { selectCondition, nextCity, previousCity };
-
-const Gallery = (props) => {
+const Layout = (props) => {
   console.log({ props });
 
   return (
-    <div className="gallery">
-      <ConditionSelector
-        conditions={props.conditions}
-        handleConditionSelect={props.selectCondition}
-      />
+    <div className="Layout">
+      <div className="TopControls">
+        <ConditionSelector
+          conditions={props.conditions}
+          handleConditionSelect={props.selectCondition}
+        />
+        <VrSelector
+          vrIsOn={props.application.vrIsOn}
+          setVrIsOn={props.setVrIsOn}
+        />
+      </div>
+      <Gallery cities={props.cities} condition={props.conditions.condition} />
       <CitySelector
-        city={props.cities.city}
-        citiesIndex={props.cities.citiesIndex}
+        cities={props.cities}
         next={props.nextCity}
         previous={props.previousCity}
       />
@@ -28,7 +34,9 @@ const Gallery = (props) => {
 const mapState = (state) => ({
   cities: state.cities,
   conditions: state.conditions,
-  app: state.application,
+  application: state.application,
 });
 
-export default connect(mapState, mapDispatch)(Gallery);
+const mapDispatch = { setVrIsOn, selectCondition, nextCity, previousCity };
+
+export default connect(mapState, mapDispatch)(Layout);

@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { icons } from '../assets/assets'
+import React from 'react';
+import styled from 'styled-components';
+import { icons } from '../assets';
 
 const Wrapper = styled.div`
   padding: 20px 20px 50px 20px;
   color: #707070;
-  background-color: #E2F0F5;
-`
+  background-color: #e2f0f5;
+`;
 const InnerWrapper = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -36,7 +36,7 @@ const InnerWrapper = styled.div`
       text-decoration: none;
 
       &:hover {
-        @media(hover: hover) {
+        @media (hover: hover) {
           text-decoration: underline;
         }
       }
@@ -48,7 +48,7 @@ const InnerWrapper = styled.div`
     margin-bottom: 10px;
     text-align: center;
   }
-`
+`;
 const AlternateLinks = styled.div`
   display: flex;
   justify-content: center;
@@ -84,7 +84,8 @@ const AlternateLinks = styled.div`
     }
     &:before {
       content: '';
-      width: 7px; height: 1px;
+      width: 7px;
+      height: 1px;
       background-color: #707070;
     }
     @media (max-width: 620px) {
@@ -93,15 +94,15 @@ const AlternateLinks = styled.div`
       }
     }
   }
-`
+`;
 const Logo = styled.a`
   display: flex;
   width: 300px;
   margin-bottom: 20px;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 
   &:hover {
-    @media(hover: hover) {
+    @media (hover: hover) {
       transform: scale(1.02);
     }
   }
@@ -111,41 +112,54 @@ const Logo = styled.a`
     width: 100%;
     height: intrinsic;
   }
-`
+`;
 
 const Footer = ({ copy }) => (
   <Wrapper>
     <InnerWrapper>
-      <Logo href={copy.domain}><img src={icons[`lenstore${copy.locale}`]} alt='Lenstore'/></Logo>
+      <Logo href={copy.domain}>
+        <img src={icons[`lenstore${copy.locale}`]} alt="Lenstore" />
+      </Logo>
       <ul>
-        {copy.footerLinks.row1.map(link => (
+        {copy.footerLinks.row1.map((link) => (
           <li key={link.url}>
-            <a href={link.url} title={link.label}>{link.label}</a>
+            <a href={link.url} title={link.label}>
+              {link.label}
+            </a>
           </li>
         ))}
       </ul>
       <ul>
-        {copy.footerLinks.row2.map(link => (
+        {copy.footerLinks.row2.map((link) => (
           <li key={link.url}>
-            <a href={link.url} title={link.label}>{link.label}</a>
+            <a href={link.url} title={link.label}>
+              {link.label}
+            </a>
           </li>
         ))}
       </ul>
       <AlternateLinks>
         <span>{copy.title}</span>
         <ul>
-          {Object.keys(copy.baseUrl).filter(key => key !== copy.locale).map((key, i) => (
-            <li key={key}>
-              <a href={copy.baseUrl[key]} title={copy.languages[copy.locale][i]}>{copy.languages[copy.locale][i]}</a>
-            </li>
-          ))}
+          {Object.keys(copy.baseUrl)
+            .filter((key) => key !== copy.locale)
+            .map((key, i) => (
+              <li key={key}>
+                <a
+                  href={copy.baseUrl[key]}
+                  title={copy.languages[copy.locale][i]}
+                >
+                  {copy.languages[copy.locale][i]}
+                </a>
+              </li>
+            ))}
         </ul>
       </AlternateLinks>
-      {copy.copyright.map(text => (
+      {copy.copyright.map((text) => (
         <p key={text}>{text}</p>
       ))}
     </InnerWrapper>
   </Wrapper>
-)
+);
 
-export default Footer
+export default Footer;
