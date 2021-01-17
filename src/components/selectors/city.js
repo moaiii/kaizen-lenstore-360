@@ -15,7 +15,9 @@ export default (props) => {
         className="direction-button"
         onClick={() => previous()}
       >
-        <IoIosArrowDropleft />
+        <div className="arrow">
+          <IoIosArrowDropleft />
+        </div>
         {previousCity}
       </button>
       <div className="city-selected">
@@ -23,7 +25,9 @@ export default (props) => {
         <div className="position">( {cities.selectedCity + 1} / 7 )</div>
       </div>
       <button type="button" className="direction-button" onClick={() => next()}>
-        <IoIosArrowDropright />
+        <div className="arrow">
+          <IoIosArrowDropright />
+        </div>
         {nextCity}
       </button>
     </div>

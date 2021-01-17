@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 $mobile: 550px;
@@ -17,11 +19,20 @@ $color-haze: rgba(128, 128, 128, 0.219);
   }
 }
 
+@mixin mobile_plus {
+  @media (min-width: $mobile) {
+    @content;
+  }
+}
+
 .Layout {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+
   @include mobile {
     min-height: 100vh;
     height: 100vh;
-    position: relative;
   }
 }
 
@@ -42,6 +53,8 @@ $color-haze: rgba(128, 128, 128, 0.219);
     top: 0;
     width: 100%;
     height: 100%;
+    pointer-events: none;
+    background-position-x: center;
 
     @include mobile {
       background-position: center;
@@ -54,6 +67,16 @@ $color-haze: rgba(128, 128, 128, 0.219);
   z-index: 3;
   color: white;
   display: flex;
+  max-width: 762px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  position: absolute;
+  bottom: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  @include button-padding;
 
   button {
     background-color: transparent;
@@ -63,10 +86,49 @@ $color-haze: rgba(128, 128, 128, 0.219);
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+
+    @include mobile_plus {
+      &:nth-of-type(even) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .arrow {
+      position: relative;
+
+      &::after {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        left: 0;
+        top: 0;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-55%);
+        border-radius: 50%;
+        z-index: -1;
+
+        @include mobile_plus {
+          height: 3.2rem;
+          width: 3.2rem;
+        }
+      }
+    }
+
+    @include mobile_plus {
+      svg {
+        margin: 0 1rem;
+        font-size: 4rem;
+      }
+    }
 
     @include mobile {
       width: 25%;
+      flex-direction: column;
+      transform: translateX(0%) translateY(0%);
       svg {
+        margin: 0rem;
         font-size: 2.5rem;
       }
     }
@@ -74,7 +136,8 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
   @include mobile {
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
+    transform: translateX(-50%) translateY(0%);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -103,14 +166,20 @@ $color-haze: rgba(128, 128, 128, 0.219);
 .TopControls {
   z-index: 3;
 
-  @include mobile {
-    padding: 1rem;
-    position: absolute;
-    top: 0;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: flex-start;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .rhs {
+    @include mobile {
+      min-width: 40%;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 
@@ -119,7 +188,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
   align-items: center;
 
   @include mobile {
-    margin: 0.7rem 0 0 0;
+    margin: 0 0 0 1rem;
   }
 
   p {
@@ -140,16 +209,16 @@ $color-haze: rgba(128, 128, 128, 0.219);
     .switch {
       top: 50%;
       background-color: white;
-      position: absolute;
       height: 1.2rem;
       width: 1.2rem;
+      position: absolute;
       border-radius: 50%;
-      transform: /* translateX(50%)  */ translateY(-50%);
-
-      right: 2px;
+      transform: translateX(15%) translateY(-50%);
+      left: 0%;
 
       &.--isVr {
-        left: 2px;
+        transform: translateX(-115%) translateY(-50%);
+        left: 100%;
       }
     }
   }
@@ -157,7 +226,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
 .ConditionSelector {
   max-width: 10rem;
-  background: $color-haze;
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   font-weight: bold;
   letter-spacing: 1px;
@@ -193,6 +262,166 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
     &:hover {
       background: rgba(128, 128, 128, 0.5);
+    }
+  }
+}
+
+.Intro {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  color: white;
+  background-color: white;
+  overflow: hidden;
+  line-height: 1.4;
+  opacity: 1;
+  transition: opacity 0.5s ease-in, transform 0.25s ease-out 0s;
+  transform: translateY(0%);
+
+  &.--hide {
+    transition: opacity 0.5s ease-in, transform 0.25s ease-out 0.5s;
+    opacity: 0;
+    transform: translateY(-1000%);
+  }
+
+  .blur {
+    background-size: cover;
+    background-position: bottom;
+    position: absolute;
+    height: 110%;
+    top: -9px;
+    width: 110%;
+    background-color: rgba(255, 255, 255, 0.397);
+    filter: blur(15px);
+    left: -10px;
+  }
+
+  .content {
+    max-width: 762px;
+    h2 {
+      text-transform: uppercase;
+
+      @include mobile {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .inner-container {
+    position: absolute;
+    z-index: 10;
+    border: 2px solid white;
+    border-radius: 0.5rem;
+    height: 80%;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    @include mobile {
+      height: 85%;
+      padding: 1rem;
+      margin: 1rem;
+    }
+
+    .button-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        svg {
+          font-size: 4rem;
+
+          @include mobile {
+            font-size: 2rem;
+          }
+        }
+        margin: 0 0 2rem 0;
+      }
+    }
+
+    button {
+      background-color: #2dadca;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 2px 5px 16px 0px rgba(0, 0, 0, 0.329);
+    }
+  }
+}
+
+.Share {
+  display: flex;
+
+  position: relative;
+
+  @include mobile {
+    flex-direction: column-reverse;
+  }
+
+  .button-container {
+    display: flex;
+    transition: opacity 0.25s ease-in;
+    opacity: 1;
+    position: absolute;
+
+    @include mobile_plus {
+      right: 100%;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      top: 100%;
+    }
+
+    &.--hide {
+      opacity: 0;
+      transition: opacity 0.25s ease-in;
+    }
+  }
+
+  .share-item {
+    .icon-container {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: white 1px solid;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+
+      svg {
+        color: white;
+        font-size: 1rem;
+      }
+
+      @include mobile {
+        margin: 0.25rem 0;
+      }
+    }
+
+    &.--code,
+    &.--info {
+      .icon-container {
+        svg {
+          font-size: 1.3rem;
+        }
+      }
     }
   }
 }

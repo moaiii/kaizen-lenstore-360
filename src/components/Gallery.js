@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { Pannellum } from 'pannellum-react';
 import { images } from '../assets';
+import useDrag from '../useDrag';
 
 export default (props) => {
   const [cityImage, setCityImage] = useState();
   const [overlayImage, setOverLayImage] = useState();
+  const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
 
-  const { cities, condition } = props;
+  const { cities, condition, vrIsOn } = props;
 
   const selectedCity = cities.CITIES[cities.selectedCity];
-
-  console.log({ selectedCity, condition });
 
   /**
    * Overlay image
@@ -28,7 +29,6 @@ export default (props) => {
     if (isOverlay > -1) {
       setOverLayImage(images.overlay[condition]);
       setCityImage(images[selectedCity].normal);
-      console.log('fetching over lay for ', condition);
     } else {
       setOverLayImage(false);
     }
@@ -39,13 +39,35 @@ export default (props) => {
     }
   }, [selectedCity, condition]);
 
+  console.log(mouseCoordinates);
+
   return (
     <div className="Gallery">
-      <img
-        className={`city --${condition}`}
-        src={cityImage}
-        alt={selectedCity}
-      />
+      {vrIsOn && (
+        <Pannellum
+          width="100%"
+          height="100%"
+          image={cityImage}
+          pitch={0}
+          yaw={90}
+          hfov={110}
+          showControls={false}
+          autoLoad
+          orientationOnByDefault={vrIsOn}
+        />
+      )}
+      {!vrIsOn && (
+        <Pannellum
+          width="100%"
+          height="100%"
+          image={cityImage}
+          pitch={10}
+          yaw={180}
+          hfov={110}
+          showControls={false}
+          autoLoad
+        />
+      )}
       {overlayImage && (
         <div
           className="condition"

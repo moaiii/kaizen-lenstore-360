@@ -14,7 +14,7 @@ export default (props) => {
     <div className="ConditionSelector">
       <div
         className={`selected ${isOpenClassMod}`}
-        onMouseOver={() => setIsOpen(true)}
+        // onMouseOver={() => setIsOpen(true)}
         onClick={() => setIsOpen(!isOpen)}
       >
         {condition}

@@ -24,67 +24,94 @@
   "label1": "...",
   "label2": "...",
   "label3": "...",
-  "headerLinks": [{
+  "headerLinks": [
+    {
       "label": "Contact Lenses",
       "url": "https://www.lenstore.co.uk/contact-lenses"
-    }, {
+    },
+    {
       "label": "Daily Disposables",
       "url": "https://www.lenstore.co.uk/daily-disposables"
-    }, {
+    },
+    {
       "label": "Two Weekly Disposables",
       "url": "https://www.lenstore.co.uk/two-weekly-disposables"
-    }, {
+    },
+    {
       "label": "Monthly Disposables",
       "url": "https://www.lenstore.co.uk/monthly-disposables"
-    }, {
+    },
+    {
       "label": "Extended Wear Lenses",
       "url": "https://www.lenstore.co.uk/extended-wear-lenses"
-    }, {
+    },
+    {
       "label": "Toric/Astigmatism Lenses",
       "url": "https://www.lenstore.co.uk/toric-lenses"
-    }, {
+    },
+    {
       "label": "Multifocal Lenses",
       "url": "https://www.lenstore.co.uk/multifocal-lenses"
-    }, {
+    },
+    {
       "label": "Solutions & Accessories",
       "url": "https://www.lenstore.co.uk/solutions-accessories"
-    }, {
+    },
+    {
       "label": "Coloured Contact Lenses",
       "url": "https://www.lenstore.co.uk/coloured-contact-lenses"
-    }, {
+    },
+    {
       "label": "Cheap Contact Lenses",
       "url": "https://www.lenstore.co.uk/cheap-contact-lenses"
     }
   ],
   "footerLinks": {
-    "row1": [{
+    "row1": [
+      {
         "label": "About Us",
         "url": "https://www.lenstore.co.uk/about-us"
-      }, {
+      },
+      {
         "label": "Contact Us",
         "url": "https://www.lenstore.co.uk/contact-us"
-      }, {
+      },
+      {
         "label": "Terms and Conditions",
         "url": "https://www.lenstore.co.uk/terms-conditions"
-      }, {
+      },
+      {
         "label": "Privacy Policy & Cookies",
         "url": "https://www.lenstore.co.uk/privacy"
       }
     ],
-    "row2": [{
+    "row2": [
+      {
         "label": "Lenstore Spain",
         "url": "https://www.lenstore.es/"
-      }, {
+      },
+      {
         "label": "Lenstore Italy",
         "url": "https://www.lenstore.it/"
-      }, {
+      },
+      {
         "label": "Lenstore Germany",
         "url": "https://www.lenstore.de/"
-      }, {
+      },
+      {
         "label": "Lenstore France",
         "url": "https://www.lenstore.fr/"
       }
     ]
   },
-  "copyright": ["Lenstore.co.uk. Company registration number: 51990. VAT No./Local Tax No. 106 3206 60.", "Copyright © 2020. All rights reserved."]
+  "copyright": [
+    "Lenstore.co.uk. Company registration number: 51990. VAT No./Local Tax No. 106 3206 60.",
+    "Copyright © 2020. All rights reserved."
+  ],
+  "intro": {
+    "title": "View 360: See the world behind these eye conditions",
+    "blurb1": "Whilst we all live in the same world, we might not be seeing it in the same way as others. To raise awareness, we have created 360 views of some of the greatest sights on the globe, and shown just how people may be experiencing these places that have an eye condition.",
+    "blurb2": "From colour deficiency to glaucoma, this is how others are seeing some of the planet's most iconic sights.",
+    "cta": "explore"
+  }
 }

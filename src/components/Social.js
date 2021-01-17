@@ -6,6 +6,7 @@ import {
   RedditShareButton,
 } from 'react-share';
 import { icons } from '../assets';
+import copy from '../assets/copy.json';
 
 const SocialWrapper = styled.div`
   text-align: center;
@@ -69,7 +70,7 @@ const StyledShareContainer = styled.div`
   }
 `;
 
-const SocialButtons = ({ copy }) => (
+const SocialButtons = (props) => (
   <SocialWrapper>
     <ButtonsWrapper>
       <StyledShareContainer className="facebook">

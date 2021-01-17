@@ -11,11 +11,12 @@ import styled, { ThemeProvider } from 'styled-components';
 import store from './redux';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Social from './components/Social';
-import './assets/index.css';
 import copy from './assets/copy.json';
-import Layout from './pages';
+import Root from './components/Root';
 import './styles.scss';
+import './assets/index.css';
+
+console.log('STORE >>> ', store);
 
 WebFont.load({ google: { families: ['Lato:400,700'] } });
 
@@ -91,9 +92,10 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <Header copy={copy} isDesktop={isDesktop} />
         <Body>
-          <Layout />
+          <Provider store={store}>
+            <Root />
+          </Provider>
         </Body>
-        {/* <Social copy={copy} /> */}
         <Footer copy={copy} />
       </ThemeProvider>
     </Wrapper>
@@ -102,25 +104,12 @@ const App = () => {
 
 const rootElement = document.getElementById('360EyeConditions');
 const baseName = new URL(copy.url).pathname;
-if (rootElement.hasChildNodes()) {
-  hydrate(
-    <React.StrictMode>
-      <Router basename={baseName}>
-        <App />
-      </Router>
-    </React.StrictMode>,
-    rootElement,
-  );
-} else {
-  render(
-    <React.StrictMode>
-      <Router basename={baseName}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-        ,
-      </Router>
-    </React.StrictMode>,
-    rootElement,
-  );
-}
+
+render(
+  <React.StrictMode>
+    <Router basename={baseName}>
+      <App />
+    </Router>
+  </React.StrictMode>,
+  rootElement,
+);

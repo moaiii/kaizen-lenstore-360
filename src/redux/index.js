@@ -92,7 +92,8 @@ const conditions = createSlice({
 export const { selectCondition } = conditions.actions;
 
 const initialApplicationState = {
-  vrIsOn: false,
+  vrIsOn: true,
+  infoIsVisible: true,
 };
 
 const application = createSlice({
@@ -102,10 +103,13 @@ const application = createSlice({
     setVrIsOn(state) {
       state.vrIsOn = !state.vrIsOn;
     },
+    setInfoIsVisible(state) {
+      state.infoIsVisible = !state.infoIsVisible;
+    },
   },
 });
 
-export const { setVrIsOn } = conditions.actions;
+export const { setVrIsOn, setInfoIsVisible } = application.actions;
 
 const reducer = combineReducers({
   cities: cities.reducer,
