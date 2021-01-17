@@ -200,8 +200,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
   .toggle {
     width: 3rem;
-    // border: solid white 1px;
-    background-color: rgba(255, 255, 255, 0.26);
+    background-color: rgba(0, 0, 0, 0.2);
     height: 1.5rem;
     border-radius: 0.65rem;
     position: relative;
@@ -236,7 +235,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
     cursor: pointer;
     @include button-padding;
     text-transform: capitalize;
-    border: white 1px solid;
+    border: white 2px solid;
   }
 
   .dropdown {
@@ -245,7 +244,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
     display: none;
     max-height: 20rem;
     overflow-y: scroll;
-    border: white 1px solid;
+    border: white 2px solid;
     border-top: none;
 
     &.--isOpen {
@@ -391,7 +390,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
   .share-item {
     .icon-container {
       background-color: rgba(0, 0, 0, 0.2);
-      border: white 1px solid;
+      border: white 2px solid;
       width: 2rem;
       height: 2rem;
       display: flex;
@@ -423,5 +422,18 @@ $color-haze: rgba(128, 128, 128, 0.219);
         }
       }
     }
+  }
+}
+
+.orientation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(50%);
+
+  p {
+    font-size: 0.6rem;
+    color: yellow;
   }
 }

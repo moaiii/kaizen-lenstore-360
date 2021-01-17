@@ -22,7 +22,6 @@ const Layout = (props) => {
     gamme: 0,
   });
   const [vrIsOnRender, setVrIsOnRender] = useState();
-  console.log('INSIDE ROOT >>> ', props);
 
   useEffect(() => {
     setVrIsOnRender(props.application.vrIsOn);
@@ -33,18 +32,10 @@ const Layout = (props) => {
   return (
     <div className="Layout">
       <div className="TopControls">
-        <div
-          className="orientation"
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            background: 'black',
-          }}
-        >
-          <p style={{ color: 'yellow' }}>Alpha: {value.alpha}</p>
-          <p style={{ color: 'yellow' }}>Beta: {value.beta}</p>
-          <p style={{ color: 'yellow' }}>Gamma: {value.gamma}</p>
+        <div className="orientation">
+          <p>Alpha: {Math.floor(value.alpha)}</p>
+          <p>Beta: {Math.floor(value.beta)}</p>
+          <p>Gamma: {Math.floor(value.gamma)}</p>
         </div>
         <ConditionSelector
           conditions={props.conditions}
