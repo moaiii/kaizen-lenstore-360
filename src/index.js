@@ -16,8 +16,6 @@ import Root from './components/Root';
 import './styles.scss';
 import './assets/index.css';
 
-console.log('STORE >>> ', store);
-
 WebFont.load({ google: { families: ['Lato:400,700'] } });
 
 const theme = {

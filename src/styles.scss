@@ -6,7 +6,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-$tiny-mobile: 400px;
+$tiny-mobile: 374px;
 $mobile: 550px;
 $color-haze: rgba(128, 128, 128, 0.219);
 $color-backdrop: rgba(0, 0, 0, 0.8);
@@ -30,13 +30,25 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 }
 
 @mixin mobile_landscape {
-  @media (max-height: $mobile) {
+  @media (max-height: 500px) and (max-width: 762px) {
     @content;
   }
 }
 
 @mixin mobile_plus {
   @media (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet_plus {
+  @media (min-width: 762px) {
+    @content;
+  }
+}
+
+@mixin tall_mobile {
+  @media (min-height: 600px) {
     @content;
   }
 }
@@ -79,12 +91,12 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 .Gallery {
   position: relative;
   height: 100%;
-  background-color: red;
+  // background-color: red;
   opacity: 0;
   z-index: 1;
 
   &.--loaded {
-    transition: opacity 0.25s ease-out 1.5s;
+    transition: opacity 0.25s ease-out 2.5s;
     opacity: 1;
   }
 
@@ -102,6 +114,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     height: 100%;
     pointer-events: none;
     background-position-x: center;
+    background-position-y: center;
 
     @include mobile {
       background-position: center;
@@ -139,13 +152,15 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: row;
+    width: 25%;
 
     @include mobile_plus {
       &:nth-of-type(even) {
         flex-direction: row-reverse;
+        justify-content: flex-start;
       }
     }
 
@@ -168,13 +183,18 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
           height: 3.2rem;
           width: 3.2rem;
         }
+
+        @include mobile_landscape {
+          height: 2.5rem;
+          width: 2.5rem;
+        }
       }
     }
 
     @include mobile_plus {
       svg {
-        margin: 0 1rem;
         font-size: 4rem;
+        margin: 0 1rem;
       }
     }
 
@@ -182,12 +202,25 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       width: 25%;
       flex-direction: column;
       transform: translateX(0%) translateY(0%);
+      font-size: 0.75rem;
 
       svg {
         margin: 0rem;
         font-size: 2.5rem;
       }
-      font-size: 0.75rem;
+    }
+
+    @include mobile_landscape {
+      font-size: 0.7rem;
+      max-width: 30%;
+      width: 30%;
+      line-height: 1.2;
+      display: flex;
+
+      svg {
+        margin: 0 1rem;
+        font-size: 3rem;
+      }
     }
   }
 
@@ -201,21 +234,41 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     padding: 0.5rem;
   }
 
+  @include mobile_landscape {
+    padding: 0.5rem;
+    bottom: 3rem;
+  }
+
   .city-selected {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50%;
 
     .name {
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 1px;
       margin: 0.25rem;
+      width: 100%;
+      text-align: center;
+
+      @include mobile_landscape {
+      }
     }
 
     .position {
       opacity: 0.7;
+      width: 100%;
+      text-align: center;
+      @include mobile_landscape {
+      }
+    }
+
+    @include mobile_landscape {
+      max-width: 40%;
+      width: 40%;
     }
   }
 }
@@ -237,11 +290,17 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       display: flex;
       justify-content: space-between;
     }
+    @include mobile_landscape {
+      min-width: 25%;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 
 .VrSelector {
-  display: flex;
+  // display: flex;
+  display: none;
   align-items: center;
 
   @include mobile {
@@ -298,12 +357,12 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   @include mobile_plus {
-    max-width: 25%;
+    max-width: 40%;
   }
 
   @include tiny-mobile {
     max-width: 8rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .selected {
@@ -315,7 +374,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     background: $color-backdrop;
 
     @include tiny-mobile {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -398,7 +457,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     top: -9px;
     width: 110%;
     background-color: rgba(255, 255, 255, 0.397);
-    filter: blur(15px);
+    filter: blur(15px) brightness(0.6);
     left: -10px;
   }
 
@@ -413,6 +472,10 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
       @include mobile_landscape {
         font-size: 1rem;
+      }
+
+      @include tall_mobile {
+        font-size: revert;
       }
     }
 
@@ -439,6 +502,12 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       margin: 1rem;
     }
 
+    @include mobile_landscape {
+      padding: 1rem;
+      margin: 1rem;
+      height: 90%;
+    }
+
     .button-bar {
       display: flex;
       flex-direction: column;
@@ -450,9 +519,10 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
           font-size: 4rem;
 
           @include mobile {
-            font-size: 2rem;
+            font-size: 3rem;
           }
         }
+
         @include mobile_landscape {
           display: none;
         }
@@ -491,6 +561,10 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     flex-direction: column-reverse;
   }
 
+  @include mobile_landscape {
+    margin-right: 4rem;
+  }
+
   .button-container {
     display: flex;
     transition: opacity 0.25s ease-in;
@@ -516,8 +590,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     .icon-container {
       background-color: $color-backdrop;
       border: white 2px solid;
-      width: 2rem;
-      height: 2rem;
+      width: 2.6rem;
+      height: 2.6rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -535,7 +609,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       }
 
       @include mobile {
-        margin: 0.25rem 0;
+        margin: 0 0 0.5rem 0;
       }
     }
 
@@ -568,4 +642,21 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   font-size: 0.75rem;
   letter-spacing: 0.01px;
   line-height: 16.9344px;
+}
+
+.a-enter-vr {
+  top: 3.4rem !important;
+  bottom: revert;
+
+  @include tablet_plus {
+    display: none;
+  }
+}
+
+html.a-fullscreen {
+  position: revert;
+
+  .a-canvas {
+    position: absolute !important;
+  }
 }

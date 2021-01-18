@@ -1,6 +1,10 @@
+/* eslint-disable */
 import React, { useEffect, useState, useMemo } from 'react';
 import { Pannellum } from 'pannellum-react';
+import { Entity, Scene } from 'aframe-react';
 import { images } from '../assets';
+
+require('aframe');
 
 export default (props) => {
   const [cityImage, setCityImage] = useState();
@@ -48,7 +52,7 @@ export default (props) => {
 
   return (
     <div className={`Gallery ${isLoading ? '' : '--loaded'}`}>
-      {vrIsOn && (
+      {/* {vrIsOn && (
         <Pannellum
           width="100%"
           height="100%"
@@ -63,22 +67,12 @@ export default (props) => {
             setIsLoading(false);
           }}
         />
-      )}
-      {!vrIsOn && (
-        <Pannellum
-          width="100%"
-          height="100%"
-          image={cityImage}
-          pitch={10}
-          yaw={180}
-          hfov={120}
-          showControls={false}
-          autoLoad
-          onLoad={() => {
-            setIsLoading(false);
-          }}
-        />
-      )}
+      )} */}
+
+      <a-scene>
+        <a-sky src={cityImage}></a-sky>
+      </a-scene>
+
       {overlayImage && (
         <div
           className="condition"
@@ -88,3 +82,21 @@ export default (props) => {
     </div>
   );
 };
+
+// const sensor = new AbsoluteOrientationSensor();
+// Promise.all([
+//   navigator.permissions.query({ name: 'accelerometer' }),
+//   navigator.permissions.query({ name: 'magnetometer' }),
+//   navigator.permissions.query({ name: 'gyroscope' }),
+// ]).then((results) => {
+//   if (results.every((result) => result.state === 'granted')) {
+//     results[2].onchange = function (e) {
+//       console.log(e);
+//     };
+//     sensor.start();
+//     console.log({ sensor });
+//   } else {
+//     console.log('No permissions to use AbsoluteOrientationSensor.');
+//   }
+//   console.log({ results });
+// });

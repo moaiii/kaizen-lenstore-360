@@ -15,7 +15,7 @@ export default (props) => {
         className="direction-button"
         onClick={() => previous()}
       >
-        <div className="arrow">
+        <div className="arrow ">
           <IoIosArrowDropleft />
         </div>
         {previousCity}

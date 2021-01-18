@@ -94,7 +94,7 @@ export const { selectCondition } = conditions.actions;
 const initialApplicationState = {
   vrIsOn: true,
   infoIsVisible: true,
-  isMobile: window.innerWidth < 550,
+  isMobile: window.innerWidth < 550 || window.innerHeight < 550,
 };
 
 const application = createSlice({
