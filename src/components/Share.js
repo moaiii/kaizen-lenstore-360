@@ -82,14 +82,16 @@ export default (props) => {
           {information}
         </div>
       </div>
-      <div className="toggle">
-        <div
-          className="share-item"
-          onClick={() => setShareIsOpen(!shareIsOpen)}
-        >
-          {share}
+      {isMobile && (
+        <div className="toggle">
+          <div
+            className="share-item"
+            onClick={() => setShareIsOpen(!shareIsOpen)}
+          >
+            {share}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

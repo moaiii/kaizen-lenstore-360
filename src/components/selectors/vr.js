@@ -28,7 +28,7 @@ export default (props) => {
   if (isMobile) {
     return (
       <div className="VrSelector">
-        <p>Vr View</p>
+        <p>{window.innerWidth < 400 ? 'VR' : 'Vr View'}</p>
         <div className="toggle" onClick={() => setVrIsOn()}>
           <TiTick style={{ margin: '0 0 0 0.3rem' }} />
           <div className={`switch ${vrIsOnClassMod}`} />

@@ -6,10 +6,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+$tiny-mobile: 400px;
 $mobile: 550px;
 $color-haze: rgba(128, 128, 128, 0.219);
 $color-backdrop: rgba(0, 0, 0, 0.8);
 $color-backdrop-light: rgba(0, 0, 0, 0.75);
+$color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
 @mixin button-padding {
   padding: 0.5rem 1rem;
@@ -17,6 +19,12 @@ $color-backdrop-light: rgba(0, 0, 0, 0.75);
 
 @mixin mobile {
   @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tiny-mobile {
+  @media (max-width: $tiny-mobile) {
     @content;
   }
 }
@@ -146,7 +154,7 @@ $color-backdrop-light: rgba(0, 0, 0, 0.75);
 
       &::after {
         content: '';
-        background-color: $color-backdrop;
+        background-color: $color-backdrop-super-light;
         position: absolute;
         left: 0;
         top: 0;
@@ -293,6 +301,11 @@ $color-backdrop-light: rgba(0, 0, 0, 0.75);
     max-width: 25%;
   }
 
+  @include tiny-mobile {
+    max-width: 8rem;
+    font-size: 0.9rem;
+  }
+
   .selected {
     border-radius: 2px;
     cursor: pointer;
@@ -300,6 +313,10 @@ $color-backdrop-light: rgba(0, 0, 0, 0.75);
     text-transform: capitalize;
     border: white 2px solid;
     background: $color-backdrop;
+
+    @include tiny-mobile {
+      font-size: 0.9rem;
+    }
   }
 
   .dropdown {
@@ -320,6 +337,10 @@ $color-backdrop-light: rgba(0, 0, 0, 0.75);
       text-transform: capitalize;
       @include button-padding;
       opacity: 0;
+
+      @include tiny-mobile {
+        font-size: 0.8rem;
+      }
     }
 
     &.--isOpen {
@@ -435,6 +456,10 @@ $color-backdrop-light: rgba(0, 0, 0, 0.75);
         @include mobile_landscape {
           display: none;
         }
+        @include tiny-mobile {
+          display: none;
+        }
+
         margin: 0 0 2rem 0;
       }
 
@@ -536,4 +561,11 @@ $color-backdrop-light: rgba(0, 0, 0, 0.75);
     font-size: 0.6rem;
     color: yellow;
   }
+}
+
+.copyright {
+  color: rgb(119, 119, 119);
+  font-size: 0.75rem;
+  letter-spacing: 0.01px;
+  line-height: 16.9344px;
 }

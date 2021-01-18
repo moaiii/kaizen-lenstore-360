@@ -29,7 +29,7 @@ const Nav = styled.div`
 
   a {
     color: #595959;
-    font-size: 1.5em;
+    font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
   }
@@ -89,7 +89,7 @@ const Breadcrumb = styled.div`
 
   a {
     color: #31b4cf;
-    font-size: 1.3em;
+    font-size: 1rem;
     text-decoration: none;
 
     &:hover {
