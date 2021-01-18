@@ -1,10 +1,7 @@
 /* eslint-disable */
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pannellum } from 'pannellum-react';
-import { Entity, Scene } from 'aframe-react';
 import { images } from '../assets';
-
-require('aframe');
 
 export default (props) => {
   const [cityImage, setCityImage] = useState();
@@ -82,21 +79,3 @@ export default (props) => {
     </div>
   );
 };
-
-// const sensor = new AbsoluteOrientationSensor();
-// Promise.all([
-//   navigator.permissions.query({ name: 'accelerometer' }),
-//   navigator.permissions.query({ name: 'magnetometer' }),
-//   navigator.permissions.query({ name: 'gyroscope' }),
-// ]).then((results) => {
-//   if (results.every((result) => result.state === 'granted')) {
-//     results[2].onchange = function (e) {
-//       console.log(e);
-//     };
-//     sensor.start();
-//     console.log({ sensor });
-//   } else {
-//     console.log('No permissions to use AbsoluteOrientationSensor.');
-//   }
-//   console.log({ results });
-// });

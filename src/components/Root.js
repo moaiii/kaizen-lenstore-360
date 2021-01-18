@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import useDeviceOrientation from '@rehooks/device-orientation';
 import { VscLoading } from 'react-icons/vsc';
 import {
   setVrIsOn,
@@ -28,16 +27,9 @@ const Layout = (props) => {
     setVrIsOnRender(props.application.vrIsOn);
   }, [props.application.vrIsOn]);
 
-  const value = useDeviceOrientation();
-
   return (
     <div className="Layout">
       <div className="TopControls">
-        {/* <div className="orientation">
-          <p>Alpha: {Math.floor(value.alpha)}</p>
-          <p>Beta: {Math.floor(value.beta)}</p>
-          <p>Gamma: {Math.floor(value.gamma)}</p>
-        </div> */}
         <ConditionSelector
           conditions={props.conditions}
           handleConditionSelect={props.selectCondition}

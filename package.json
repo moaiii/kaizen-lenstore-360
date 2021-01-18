@@ -24,12 +24,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
-    "@rehooks/device-orientation": "^1.0.0",
     "aframe": "^1.1.0",
-    "aframe-react": "^4.4.0",
     "pannellum-react": "^1.2.4",
     "react": "^17.0.1",
-    "react-accelerometer": "^1.0.1",
     "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.1",
     "react-ga": "^3.2.1",
@@ -39,7 +36,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-share": "^4.3.1",
-    "react-transition-group": "^4.4.1",
     "sass": "^1.32.4",
     "styled-components": "^5.2.1",
     "webfontloader": "^1.6.28"
