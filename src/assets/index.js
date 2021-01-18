@@ -61,7 +61,7 @@ const images = {
     deuteranopia: dubaiDeuteranopia,
     'night blindness': dubaiNightblind,
   },
-  newyork: {
+  'new york': {
     normal: newyorkNormal,
     cataracts: newyorkCataracts,
     deuteranopia: newyorkDeuteranopia,
@@ -91,7 +91,7 @@ const images = {
     deuteranopia: parisDeuteranopia,
     'night blindness': parisNightblind,
   },
-  hongkong: {
+  'hong kong': {
     normal: hongkongNormal,
     cataracts: hongkongCataracts,
     deuteranopia: hongkongDeuteranopia,

@@ -8,6 +8,8 @@
 
 $mobile: 550px;
 $color-haze: rgba(128, 128, 128, 0.219);
+$color-backdrop: rgba(0, 0, 0, 0.8);
+$color-backdrop-light: rgba(0, 0, 0, 0.75);
 
 @mixin button-padding {
   padding: 0.5rem 1rem;
@@ -15,6 +17,12 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
 @mixin mobile {
   @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin mobile_landscape {
+  @media (max-height: $mobile) {
     @content;
   }
 }
@@ -29,10 +37,34 @@ $color-haze: rgba(128, 128, 128, 0.219);
   position: relative;
   height: 80vh;
   overflow: hidden;
+  background-color: #121212;
 
   @include mobile {
-    min-height: 100vh;
-    height: 100vh;
+    min-height: 90vh;
+    height: 90vh;
+  }
+
+  @include mobile_landscape {
+    height: 90vh;
+  }
+
+  @keyframes spin-loader {
+    0% {
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+  }
+
+  .loading-spinner {
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 5rem;
+    z-index: 0;
+    animation: spin-loader 2s infinite forwards linear;
   }
 }
 
@@ -40,6 +72,13 @@ $color-haze: rgba(128, 128, 128, 0.219);
   position: relative;
   height: 100%;
   background-color: red;
+  opacity: 0;
+  z-index: 1;
+
+  &.--loaded {
+    transition: opacity 0.25s ease-out 1.5s;
+    opacity: 1;
+  }
 
   .city {
     height: 100%;
@@ -61,6 +100,14 @@ $color-haze: rgba(128, 128, 128, 0.219);
       background-size: auto 100%;
     }
   }
+
+  .pannellum-appear {
+    opacity: 0.1;
+  }
+  .pannellum-appear-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+  }
 }
 
 .CitySelector {
@@ -76,7 +123,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
   width: 100%;
   display: flex;
   justify-content: space-between;
-  @include button-padding;
+  padding: 0.5rem 1rem;
 
   button {
     background-color: transparent;
@@ -99,7 +146,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
       &::after {
         content: '';
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: $color-backdrop;
         position: absolute;
         left: 0;
         top: 0;
@@ -127,10 +174,12 @@ $color-haze: rgba(128, 128, 128, 0.219);
       width: 25%;
       flex-direction: column;
       transform: translateX(0%) translateY(0%);
+
       svg {
         margin: 0rem;
         font-size: 2.5rem;
       }
+      font-size: 0.75rem;
     }
   }
 
@@ -141,7 +190,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
     width: 100%;
     display: flex;
     justify-content: space-between;
-    @include button-padding;
+    padding: 0.5rem;
   }
 
   .city-selected {
@@ -200,10 +249,14 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
   .toggle {
     width: 3rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: $color-backdrop;
     height: 1.5rem;
     border-radius: 0.65rem;
     position: relative;
+
+    svg {
+      color: white;
+    }
 
     .switch {
       top: 50%;
@@ -225,10 +278,20 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
 .ConditionSelector {
   max-width: 10rem;
-  background: rgba(0, 0, 0, 0.5);
   color: white;
   font-weight: bold;
   letter-spacing: 1px;
+  overflow: hidden;
+  max-height: 4.5rem;
+
+  &.--isOpen {
+    max-height: 100vh;
+    overflow: auto;
+  }
+
+  @include mobile_plus {
+    max-width: 25%;
+  }
 
   .selected {
     border-radius: 2px;
@@ -236,31 +299,48 @@ $color-haze: rgba(128, 128, 128, 0.219);
     @include button-padding;
     text-transform: capitalize;
     border: white 2px solid;
+    background: $color-backdrop;
   }
 
   .dropdown {
     border-radius: 2px;
     margin: 0;
-    display: none;
     max-height: 20rem;
     overflow-y: scroll;
     border: white 2px solid;
     border-top: none;
+    transform: rotateX(90deg);
+    background: transparent;
+    pointer-events: none;
+
+    .condition-item {
+      margin: 0;
+      cursor: pointer;
+      list-style: none;
+      text-transform: capitalize;
+      @include button-padding;
+      opacity: 0;
+    }
 
     &.--isOpen {
-      display: block;
+      pointer-events: all;
+      transition: transform 0.2s ease-in;
+      transform: rotateX(0deg);
+
+      .condition-item {
+        opacity: 1;
+        background: $color-backdrop;
+        transition: opacity 0.15s ease-in 0.2s;
+
+        &:hover {
+          background: white;
+          color: $color-backdrop;
+        }
+      }
     }
-  }
 
-  .condition-item {
-    margin: 0;
-    cursor: pointer;
-    list-style: none;
-    text-transform: capitalize;
-    @include button-padding;
-
-    &:hover {
-      background: rgba(128, 128, 128, 0.5);
+    @include mobile_landscape {
+      max-height: 30vh;
     }
   }
 }
@@ -309,6 +389,16 @@ $color-haze: rgba(128, 128, 128, 0.219);
       @include mobile {
         font-size: 1rem;
       }
+
+      @include mobile_landscape {
+        font-size: 1rem;
+      }
+    }
+
+    p {
+      @include mobile_landscape {
+        font-size: 0.75rem;
+      }
     }
   }
 
@@ -342,7 +432,14 @@ $color-haze: rgba(128, 128, 128, 0.219);
             font-size: 2rem;
           }
         }
+        @include mobile_landscape {
+          display: none;
+        }
         margin: 0 0 2rem 0;
+      }
+
+      @include mobile_landscape {
+        display: hidden;
       }
     }
 
@@ -359,8 +456,11 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
 .Share {
   display: flex;
-
   position: relative;
+
+  &.--hide {
+    overflow: hidden;
+  }
 
   @include mobile {
     flex-direction: column-reverse;
@@ -389,7 +489,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
 
   .share-item {
     .icon-container {
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: $color-backdrop;
       border: white 2px solid;
       width: 2rem;
       height: 2rem;
@@ -401,7 +501,7 @@ $color-haze: rgba(128, 128, 128, 0.219);
       cursor: pointer;
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: $color-backdrop-light;
       }
 
       svg {

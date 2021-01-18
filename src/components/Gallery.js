@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Pannellum } from 'pannellum-react';
 import { images } from '../assets';
-import useDrag from '../useDrag';
 
 export default (props) => {
   const [cityImage, setCityImage] = useState();
   const [overlayImage, setOverLayImage] = useState();
-  const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
-
   const { cities, condition, vrIsOn } = props;
-
   const selectedCity = cities.CITIES[cities.selectedCity];
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [panoImage, setPanoImage] = useState();
 
   /**
    * Overlay image
@@ -39,21 +38,30 @@ export default (props) => {
     }
   }, [selectedCity, condition]);
 
-  console.log(mouseCoordinates);
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setPanoImage(cityImage);
+    }, 500);
+  }, [cityImage, overlayImage]);
 
   return (
-    <div className="Gallery">
+    <div className={`Gallery ${isLoading ? '' : '--loaded'}`}>
       {vrIsOn && (
         <Pannellum
           width="100%"
           height="100%"
-          image={cityImage}
+          image={panoImage}
           pitch={0}
           yaw={90}
-          hfov={110}
+          hfov={120}
           showControls={false}
           autoLoad
           orientationOnByDefault={vrIsOn}
+          onLoad={() => {
+            setIsLoading(false);
+          }}
         />
       )}
       {!vrIsOn && (
@@ -63,9 +71,12 @@ export default (props) => {
           image={cityImage}
           pitch={10}
           yaw={180}
-          hfov={110}
+          hfov={120}
           showControls={false}
           autoLoad
+          onLoad={() => {
+            setIsLoading(false);
+          }}
         />
       )}
       {overlayImage && (

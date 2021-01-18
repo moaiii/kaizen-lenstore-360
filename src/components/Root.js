@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import useDeviceOrientation from '@rehooks/device-orientation';
+import { VscLoading } from 'react-icons/vsc';
 import {
   setVrIsOn,
   selectCondition,
@@ -32,17 +33,20 @@ const Layout = (props) => {
   return (
     <div className="Layout">
       <div className="TopControls">
-        <div className="orientation">
+        {/* <div className="orientation">
           <p>Alpha: {Math.floor(value.alpha)}</p>
           <p>Beta: {Math.floor(value.beta)}</p>
           <p>Gamma: {Math.floor(value.gamma)}</p>
-        </div>
+        </div> */}
         <ConditionSelector
           conditions={props.conditions}
           handleConditionSelect={props.selectCondition}
         />
         <div className="rhs">
-          <SocialShare setInfoIsVisible={props.setInfoIsVisible} />
+          <SocialShare
+            isMobile={props.application.isMobile}
+            setInfoIsVisible={props.setInfoIsVisible}
+          />
           <VrSelector vrIsOn={vrIsOnRender} setVrIsOn={props.setVrIsOn} />
         </div>
       </div>
@@ -61,6 +65,7 @@ const Layout = (props) => {
         setInfoIsVisible={props.setInfoIsVisible}
         infoIsVisible={props.application.infoIsVisible}
       />
+      <VscLoading className="loading-spinner" />
     </div>
   );
 };

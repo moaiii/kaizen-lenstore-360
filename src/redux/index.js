@@ -4,12 +4,12 @@ import { createStore, combineReducers } from 'redux';
 const initialCityState = {
   CITIES: [
     'dubai',
-    'newyork',
+    'new york',
     'sydney',
     'paris',
     'venice',
     'london',
-    'hongkong',
+    'hong kong',
   ],
   selectedCity: 0,
   previousCity: 6,
@@ -94,6 +94,7 @@ export const { selectCondition } = conditions.actions;
 const initialApplicationState = {
   vrIsOn: true,
   infoIsVisible: true,
+  isMobile: window.innerWidth < 550,
 };
 
 const application = createSlice({

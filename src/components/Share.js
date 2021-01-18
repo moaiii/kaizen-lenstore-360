@@ -10,8 +10,8 @@ const IconContainer = (props) => {
 };
 
 export default (props) => {
-  const [shareIsOpen, setShareIsOpen] = useState();
-  const { setInfoIsVisible } = props;
+  const { setInfoIsVisible, isMobile } = props;
+  const [shareIsOpen, setShareIsOpen] = useState(!isMobile);
 
   const handleSocial = (provider) => {
     let href;
@@ -69,7 +69,7 @@ export default (props) => {
   const shareIsOpenClassMod = !shareIsOpen ? '--hide' : '';
 
   return (
-    <div className="Share">
+    <div className={`Share ${shareIsOpenClassMod}`}>
       <div className={`button-container ${shareIsOpenClassMod}`}>
         <div className="share-item" onClick={() => handleSocial('facebook')}>
           {facebook}
