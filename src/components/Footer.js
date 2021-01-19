@@ -31,7 +31,7 @@ const InnerWrapper = styled.div`
     }
     a {
       color: #707070;
-      font-size: 0.875rem;
+      font-size: 13px;
       font-weight: 700;
       text-decoration: none;
 
@@ -43,7 +43,7 @@ const InnerWrapper = styled.div`
     }
   }
   p {
-    font-size: 0.7rem;
+    font-size: 12px;
     line-height: 1;
     margin-bottom: 10px;
     text-align: center;
@@ -61,7 +61,7 @@ const AlternateLinks = styled.div`
     flex-wrap: wrap;
   }
   span {
-    font-size: 0.875rem;
+    font-size: 13px;
     font-weight: 700;
     line-height: 1.1;
     margin-right: 5px;

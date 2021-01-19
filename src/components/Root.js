@@ -16,11 +16,6 @@ import IntroScreen from './intro';
 import SocialShare from './Share';
 
 const Layout = (props) => {
-  const [orientation, setOrientation] = useState({
-    alpha: 0,
-    beta: 0,
-    gamme: 0,
-  });
   const [vrIsOnRender, setVrIsOnRender] = useState();
 
   useEffect(() => {
@@ -29,12 +24,12 @@ const Layout = (props) => {
 
   return (
     <div className="Layout">
-      <div className="TopControls">
+      <div className="TopControls" id="top-controls">
         <ConditionSelector
           conditions={props.conditions}
           handleConditionSelect={props.selectCondition}
         />
-        <div className="rhs">
+        <div className="rhs" id="vr-share-container">
           <SocialShare
             isMobile={props.application.isMobile}
             setInfoIsVisible={props.setInfoIsVisible}

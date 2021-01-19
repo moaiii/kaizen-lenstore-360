@@ -11,7 +11,7 @@ const IconContainer = (props) => {
 
 export default (props) => {
   const { setInfoIsVisible, isMobile } = props;
-  const [shareIsOpen, setShareIsOpen] = useState(!isMobile);
+  const [shareIsOpen, setShareIsOpen] = useState(window.innerWidth > 762);
 
   const handleSocial = (provider) => {
     let href;
@@ -82,16 +82,14 @@ export default (props) => {
           {information}
         </div>
       </div>
-      {isMobile && (
-        <div className="toggle">
-          <div
-            className="share-item"
-            onClick={() => setShareIsOpen(!shareIsOpen)}
-          >
-            {share}
-          </div>
+      <div className="toggle">
+        <div
+          className="share-item"
+          onClick={() => setShareIsOpen(!shareIsOpen)}
+        >
+          {share}
         </div>
-      )}
+      </div>
     </div>
   );
 };

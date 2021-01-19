@@ -70,7 +70,7 @@ const initialConditionState = {
     'night blindness',
   ],
   conditionsIndex: 0,
-  condition: 'normal',
+  condition: 'cataracts',
 };
 
 const conditions = createSlice({
@@ -95,6 +95,7 @@ const initialApplicationState = {
   vrIsOn: true,
   infoIsVisible: true,
   isMobile: window.innerWidth < 550 || window.innerHeight < 550,
+  hasVrSupport: false,
 };
 
 const application = createSlice({

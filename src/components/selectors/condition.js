@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export default (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const node = useRef();
 
   const {
     handleConditionSelect,
@@ -10,8 +11,26 @@ export default (props) => {
 
   const isOpenClassMod = isOpen ? '--isOpen' : '';
 
+  const handleClick = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
+
   return (
-    <div className={`ConditionSelector ${isOpenClassMod}`}>
+    <div
+      className={`ConditionSelector ${isOpenClassMod}`}
+      id="condition-selector"
+      ref={node}
+    >
       <div
         className={`selected ${isOpenClassMod}`}
         // onMouseOver={() => setIsOpen(true)}

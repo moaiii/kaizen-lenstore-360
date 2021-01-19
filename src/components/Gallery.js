@@ -2,8 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { Pannellum } from 'pannellum-react';
 import { images } from '../assets';
+import { get } from 'lodash';
 
 export default (props) => {
+  const [isVrDisplay, setIsVrDisplay] = useState(false);
+
   const [cityImage, setCityImage] = useState();
   const [overlayImage, setOverLayImage] = useState();
   const { cities, condition, vrIsOn } = props;
@@ -47,9 +50,26 @@ export default (props) => {
     }, 500);
   }, [cityImage, overlayImage]);
 
+  useEffect(async () => {
+    const vrd = AFRAME.utils.device.getVRDisplay();
+    const vrDeviceName = get(vrd, 'displayName', false);
+
+    if (typeof vrDeviceName === 'string' && vrDeviceName.length > 0) {
+      setIsVrDisplay(true);
+    } else {
+      document.getElementById('vr-share-container').classList.add('--no-vr');
+      document.getElementById('top-controls').classList.add('--no-vr');
+      setIsVrDisplay(false);
+    }
+  }, []);
+
   return (
     <div className={`Gallery ${isLoading ? '' : '--loaded'}`}>
-      {/* {vrIsOn && (
+      {isVrDisplay ? (
+        <a-scene>
+          <a-sky src={cityImage}></a-sky>
+        </a-scene>
+      ) : (
         <Pannellum
           width="100%"
           height="100%"
@@ -64,11 +84,10 @@ export default (props) => {
             setIsLoading(false);
           }}
         />
-      )} */}
-
-      <a-scene>
+      )}
+      {/* <a-scene>
         <a-sky src={cityImage}></a-sky>
-      </a-scene>
+      </a-scene> */}
 
       {overlayImage && (
         <div
