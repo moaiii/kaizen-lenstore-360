@@ -4,7 +4,6 @@
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  filter: saturate(1.01);
 }
 
 $tiny-mobile: 374px;
@@ -54,19 +53,49 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 }
 
+.exit-vr-mode-button {
+  position: fixed;
+  z-index: 999999;
+  right: 0%;
+  top: 5%;
+  padding: 0.5rem 1rem;
+  display: none;
+
+  &.--in-vr {
+    display: revert;
+  }
+
+  svg {
+    font-size: 3rem;
+    fill: rgb(220, 53, 69);
+  }
+}
 .Layout {
   position: relative;
-  height: 80vh;
+  height: 90vh;
   overflow: hidden;
   background: radial-gradient(#121212d5, #121212 90%);
 
+  &.--in-vr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    .TopControls,
+    .CitySelector {
+      display: none;
+    }
+  }
+
   @include mobile {
-    min-height: 90vh;
-    height: 90vh;
+    min-height: 80vh;
+    height: 80vh;
   }
 
   @include mobile_landscape {
-    height: 90vh;
+    height: 75vh;
   }
 
   @keyframes spin-loader {
@@ -347,12 +376,13 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   justify-content: space-between;
   align-items: flex-start;
 
-  &.--no-vr {
+  &.--no-vr,
+  &.--vr-denied {
     width: 100%;
   }
 
   @include mobile {
-    width: 85%;
+    width: 80%;
   }
 
   @include tablet_plus {
@@ -675,8 +705,16 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       color: white;
       padding: 0.5rem 1rem;
       text-transform: uppercase;
+      font-weight: bold;
       cursor: pointer;
       box-shadow: 2px 5px 16px 0px rgba(0, 0, 0, 0.329);
+      transition: background-color 0.25s ease, color 0.25s ease;
+
+      &:hover {
+        background-color: white;
+        color: #2dadca;
+        box-shadow: 2px 5px 16px 0px rgba(0255, 255, 255, 0.1);
+      }
     }
   }
 }
@@ -829,4 +867,10 @@ html.a-fullscreen {
   background: black;
   display: flex;
   flex-direction: column;
+}
+
+.a-orientation-modal {
+  button {
+    display: none;
+  }
 }

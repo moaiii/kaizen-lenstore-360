@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { VscLoading } from 'react-icons/vsc';
+import { AiFillCloseSquare } from 'react-icons/ai';
 import {
   setVrIsOn,
   selectCondition,
@@ -16,15 +17,64 @@ import IntroScreen from './intro';
 import SocialShare from './Share';
 
 const Layout = (props) => {
+  const [hasEnteredVrMode, setHasEnteredVrMode] = useState(false);
+  const [denyButton, setDenyButton] = useState(false);
   const [vrIsOnRender, setVrIsOnRender] = useState();
+  const [userDeniedDeviceVrSensors, setUserDeniedDeviceVrSensors] = useState(
+    false,
+  );
 
   useEffect(() => {
     setVrIsOnRender(props.application.vrIsOn);
   }, [props.application.vrIsOn]);
 
+  const handleEnterVrMode = () => {
+    setHasEnteredVrMode(true);
+  };
+
+  const handleExitVrMode = () => {
+    const aScene = document.querySelector('a-scene');
+
+    if (aScene) {
+      setHasEnteredVrMode(false);
+      aScene.exitVR();
+    }
+  };
+
+  useEffect(() => {
+    if (!denyButton) {
+      const denyButtonElement = document.getElementsByClassName(
+        'a-dialog-deny-button',
+      );
+
+      if (denyButtonElement.length > 0) {
+        setDenyButton(denyButtonElement[0]);
+        denyButtonElement[0].addEventListener('click', () => {
+          setUserDeniedDeviceVrSensors(true);
+        });
+      }
+    }
+  });
+
+  const vrModeEnabledClassMod = hasEnteredVrMode ? '--in-vr' : '';
+
+  const vrSensorsDeniedClassMod = userDeniedDeviceVrSensors
+    ? '--vr-denied'
+    : '';
+
   return (
-    <div className="Layout">
-      <div className="TopControls" id="top-controls">
+    <div className={`Layout ${vrModeEnabledClassMod}`}>
+      <button
+        className={`exit-vr-mode-button ${vrModeEnabledClassMod}`}
+        type="button"
+        onClick={() => handleExitVrMode()}
+      >
+        <AiFillCloseSquare />
+      </button>
+      <div
+        className={`TopControls ${vrSensorsDeniedClassMod}`}
+        id="top-controls"
+      >
         <ConditionSelector
           conditions={props.conditions}
           handleConditionSelect={props.selectCondition}
@@ -41,6 +91,8 @@ const Layout = (props) => {
         cities={props.cities}
         condition={props.conditions.condition}
         vrIsOn={vrIsOnRender}
+        handleEnterVrMode={handleEnterVrMode}
+        userDeniedDeviceVrSensors={userDeniedDeviceVrSensors}
       />
       <CitySelector
         cities={props.cities}

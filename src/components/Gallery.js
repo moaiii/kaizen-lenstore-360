@@ -5,15 +5,21 @@ import { images } from '../assets';
 import { get } from 'lodash';
 
 export default (props) => {
-  const [isVrDisplay, setIsVrDisplay] = useState(false);
+  const {
+    cities,
+    condition,
+    vrIsOn,
+    handleEnterVrMode,
+    userDeniedDeviceVrSensors,
+  } = props;
 
+  const [isVrDisplay, setIsVrDisplay] = useState(false);
   const [cityImage, setCityImage] = useState();
   const [overlayImage, setOverLayImage] = useState();
-  const { cities, condition, vrIsOn } = props;
   const selectedCity = cities.CITIES[cities.selectedCity];
   const [isLoading, setIsLoading] = useState(false);
-
   const [panoImage, setPanoImage] = useState();
+  const [sceneElement, setSceneElement] = useState(null);
 
   /**
    * Overlay image
@@ -63,9 +69,25 @@ export default (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!sceneElement) {
+      const aScene = document.querySelector('a-scene');
+      console.log({ aScene });
+      if (aScene) {
+        setSceneElement(aScene);
+        aScene.addEventListener('enter-vr', () => {
+          console.log('IN THE CALLBACK');
+          handleEnterVrMode();
+        });
+      }
+    }
+  });
+
+  console.log({ sceneElement });
+
   return (
     <div className={`Gallery ${isLoading ? '' : '--loaded'}`}>
-      {isVrDisplay ? (
+      {isVrDisplay && !userDeniedDeviceVrSensors ? (
         <a-scene>
           <a-sky src={cityImage}></a-sky>
         </a-scene>
