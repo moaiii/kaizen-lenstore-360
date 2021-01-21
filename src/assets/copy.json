@@ -18,12 +18,30 @@
   "lang": "en-GB",
   "ogLocale": "en_GB",
   "twitter": "Lenstore",
-  "title": "Lenstore Skeleton",
-  "description": "Skeleton project for Lenstore.",
-  "labels": "Any copy that would be used in the app will go in this file. You will receive a copy.json for each locale.",
-  "label1": "...",
-  "label2": "...",
-  "label3": "...",
+  "breadcrumb": {
+    "en": "360-view",
+    "it": "Vista a 360 gradi",
+    "es": "Vista a 360 grados",
+    "de": "Panoramablick"
+  },
+  "title": {
+    "en": "360-view: See the world through these eye conditions",
+    "it": "Vista a 360 gradi: Guarda il mondo attraverso queste patologie oculari",
+    "es": "Vista a 360 grados: observa el mundo con estas afecciones oculares",
+    "de": "Panoramablick: Sehe die Welt durch diese Augenerkrankungen"
+  },
+  "meta-title": {
+    "en": "See the world through these eye conditions - Lenstore",
+    "it": "Guarda il mondo attraverso queste patologie oculari",
+    "es": "observa el mundo con estas afecciones oculares",
+    "de": "Sehe die Welt durch diese Augenerkrankungen"
+  },
+  "description": {
+    "en": "From colour deficiency to glaucoma, use our 360 image explorer to view how others see the planet's most iconic sights",
+    "it": "Dal daltonismo al glaucoma, ora puoi utilizzare questo strumento per vedere alcuni tra i panorami più iconici al mondo come coloro affetti da patologie oculari ",
+    "es": "Desde la deficiencia de color hasta el glaucoma, usa nuestro explorador de imágenes 360 para ver cómo otros observan algunos de los lugares más emblemáticos del planeta.",
+    "de": "Von der Farbfehlsichtigkeit bis zum Grünen Star, benutze unsere 360 Grad Bildergalerie um zu sehen, wie andere einige der bekanntesten Sehenswürdigkeiten unserer Welt sehen."
+  },
   "headerLinks": [
     {
       "label": "Contact Lenses",
@@ -108,10 +126,222 @@
     "Lenstore.co.uk. Company registration number: 51990. VAT No./Local Tax No. 106 3206 60.",
     "Copyright © 2020. All rights reserved."
   ],
+  "cities": {
+    "en": {
+      "dubai": "dubai",
+      "venice": "venice",
+      "london": "london",
+      "hong kong": "hong kong",
+      "paris": "paris",
+      "sydney": "sydney",
+      "new york": "new york"
+    },
+    "es": {
+      "dubai": "dubái",
+      "venice": "venecia",
+      "london": "londres",
+      "hong kong": "hong kong",
+      "paris": "parís",
+      "sydney": "sydney",
+      "new york": "nueva york"
+    },
+    "it": {
+      "dubai": "dubai",
+      "venice": "venezia",
+      "london": "londra",
+      "hong kong": "hong kong",
+      "paris": "parigi",
+      "sydney": "sydney",
+      "new york": "new york"
+    },
+    "de": {
+      "dubai": "dubai",
+      "venice": "venedig",
+      "london": "london",
+      "hong kong": "hong kong",
+      "paris": "paris",
+      "sydney": "sydney",
+      "new york": "new york"
+    }
+  },
+  "condition": {
+    "en": {
+      "normal": {
+        "name": "normal",
+        "descrition": ""
+      },
+      "condition": {
+        "name": "condition",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "deuteranopia": {
+        "name": "deuteranopia",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "macular degeneration": {
+        "name": "macular degeneration",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "cataracts": {
+        "name": "cataracts",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "eye floaters": {
+        "name": "eye floaters",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "glaucoma": {
+        "name": "glaucoma",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "tunnel vision": {
+        "name": "tunnel vision",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "night blindness": {
+        "name": "night blindness",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      }
+    },
+    "es": {
+      "normal": {
+        "name": "normal",
+        "descrition": ""
+      },
+      "condition": {
+        "name": "afección",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "deuteranopia": {
+        "name": "deuteranopía",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "macular degeneration": {
+        "name": "degeneración macular",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "cataracts": {
+        "name": "cataratas",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "eye floaters": {
+        "name": "miodesopsia",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "glaucoma": {
+        "name": "glaucoma",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "tunnel vision": {
+        "name": "visión de túnel",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "night blindness": {
+        "name": "ceguera nocturna",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      }
+    },
+    "it": {
+      "normal": {
+        "name": "normale",
+        "descrition": ""
+      },
+      "condition": {
+        "name": "condizione",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "deuteranopia": {
+        "name": "daltonismo",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "macular degeneration": {
+        "name": "degenerazione maculare",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "cataracts": {
+        "name": "cataratta",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "eye floaters": {
+        "name": "miodesopsie dell'occhio",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "glaucoma": {
+        "name": "glaucoma",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "tunnel vision": {
+        "name": "visione a tunnel",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "night blindness": {
+        "name": "cecità notturna",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      }
+    },
+    "de": {
+      "normal": {
+        "name": "normal",
+        "descrition": ""
+      },
+      "condition": {
+        "name": "kondition",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "deuteranopia": {
+        "name": "grünblindheit",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "macular degeneration": {
+        "name": "makuladegeneration",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "cataracts": {
+        "name": "katarakte",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "eye floaters": {
+        "name": "glaskörpertrübung",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "glaucoma": {
+        "name": "grüner star",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "tunnel vision": {
+        "name": "tunnelblick",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      },
+      "night blindness": {
+        "name": "nachtblindheit",
+        "description": "Bilge main sheet bounty schooner Brethren of the Coast jury mast American Main measured fer yer chains quarter crow's nest. Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+      }
+    }
+  },
   "intro": {
-    "title": "View 360: See the world behind these eye conditions",
-    "blurb1": "Whilst we all live in the same world, we might not be seeing it in the same way as others. To raise awareness, we have created 360 views of some of the greatest sights on the globe, and shown just how people may be experiencing these places that have an eye condition.",
-    "blurb2": "From colour deficiency to glaucoma, this is how others are seeing some of the planet's most iconic sights.",
-    "cta": "explore"
+    "en": {
+      "title": "View 360: See the world behind these eye conditions",
+      "blurb1": "Whilst we all live in the same world, we might not be seeing it in the same way as others. To raise awareness, we have created 360 views of some of the greatest sights on the globe, and shown just how people may be experiencing these places that have an eye condition.",
+      "blurb2": "From colour deficiency to glaucoma, this is how others are seeing some of the planet's most iconic sights.",
+      "cta": "explore"
+    },
+    "it": {
+      "title": "Vista a 360 gradi: Guarda il mondo attraverso queste patologie oculari",
+      "blurb1": "Sebbene tutti viviamo nello stesso mondo, il modo in cui ne facciamo esperienza attraverso la vista può variare drasticamente. ",
+      "blurb2": "Daltonismo, glaucoma, cecità notturna, visione a tunnel, degenerazione maculare e cataratta sono tutte malattie che colpiscono l'occhio.  Per sensibilizzare le persone sui diversi modi di vedere, abbiamo creato visualizzazioni a 360 gradi di alcuni dei panorami più mozzafiato al mondo per mostrare come questi luoghi vengono percepiti dalle persone con diverse patologie oculari.",
+      "cta": "Esplora"
+    },
+    "es": {
+      "title": "Vista a 360 grados: observa el mundo con estas afecciones oculares",
+      "blurb1": "Si bien todos vivimos en el mismo mundo, no lo vemos de la misma manera.",
+      "blurb2": "Desde la deficiencia de color hasta el glaucoma, pasando por la ceguera nocturna, la visión de túnel, la degeneración macular o la cataratas, hay una gran cantidad de afecciones oculares. Para crear conciencia sobre ello, hemos combinado vistas de 360 ​​grados de algunos de los lugares más icónicos del mundo con filtros de cada afección ocular para que experimentes la forma como otros los ven.",
+      "cta": "Explora"
+    },
+    "de": {
+      "title": "Panoramablick: Sehe die Welt durch diese Augenerkrankungen",
+      "blurb1": "Obowhl wir alle auf derselben Welt leben, sehen wir sie nicht unbedingt auf die gleiche Art und Weise.",
+      "blurb2": "Von der Farbfehlsichtigkeit bis zum Grünen Star, der Nachtblindheit bis zum Tunnelblick, sowie von Makuladegeneration bis zum Grauen Star, gibt es eine Vielzahl von Augenerkrankungen. Um das Bewusstsein für häufig vorkommende Augenkrankheiten zu fördern, haben wir Panoramablilder von einigen der großartigsten Sehenswürdigkeiten der Welt mit Überlagerungen der jeweiligen Krankheit kombiniert, damit Sie erleben können, wie andere sehen.",
+      "cta": "Erkunde"
+    }
   }
 }

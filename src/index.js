@@ -18,6 +18,8 @@ import './assets/index.css';
 
 WebFont.load({ google: { families: ['Lato:400,700'] } });
 
+const lang = 'es';
+
 const theme = {
   colors: {
     white: '#FFFFFF',
@@ -33,12 +35,14 @@ const theme = {
     mSmall: '400px',
   },
 };
+
 const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   min-height: 100%;
   min-width: 100%;
 `;
+
 const Body = styled.div``;
 
 const App = () => {
@@ -61,10 +65,10 @@ const App = () => {
     <Wrapper>
       <Helmet>
         <html lang={copy.lang} />
-        <title>{`${copy.title} | Lenstore`}</title>
-        <meta name="description" content={copy.description} />
-        <meta property="og:title" content={copy.title} />
-        <meta property="og:description" content={copy.description} />
+        <title>{`${copy.title[lang]} | Lenstore`}</title>
+        <meta name="description" content={copy.description[lang]} />
+        <meta property="og:title" content={copy.title[lang]} />
+        <meta property="og:description" content={copy.description[lang]} />
         <meta property="og:url" content={copy.url} />
         <meta property="og:locale" content={copy.ogLocale} />
         <meta property="og:image" content={`${copy.url}/opengraph.png`} />
@@ -74,8 +78,8 @@ const App = () => {
         />
         <meta name="twitter:image" content={`${copy.url}/opengraph.png`} />
         <meta name="twitter:site" content={`@${copy.twitter}`} />
-        <meta name="twitter:title" content={copy.title} />
-        <meta name="twitter:description" content={copy.description} />
+        <meta name="twitter:title" content={copy.title[lang]} />
+        <meta name="twitter:description" content={copy.description[lang]} />
         <meta name="twitter:url" content={copy.url} />
         <link rel="canonical" href={copy.url} />
         {Object.keys(copy.baseUrl).map((key) => (
@@ -88,13 +92,13 @@ const App = () => {
         ))}
       </Helmet>
       <ThemeProvider theme={theme}>
-        <Header copy={copy} isDesktop={isDesktop} />
+        <Header copy={copy} isDesktop={isDesktop} lang={lang} />
         <Body>
           <Provider store={store}>
-            <Root />
+            <Root copy={copy} lang={lang} />
           </Provider>
         </Body>
-        <Footer copy={copy} />
+        <Footer copy={copy} lang={lang} />
       </ThemeProvider>
     </Wrapper>
   );

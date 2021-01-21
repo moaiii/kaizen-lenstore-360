@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -53,11 +60,17 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 }
 
+@mixin wide_slim {
+  @media (max-height: 500px) and (max-width: 1000px) {
+    @content;
+  }
+}
+
 .exit-vr-mode-button {
   position: fixed;
   z-index: 999999;
   right: 0%;
-  top: 5%;
+  top: 2%;
   padding: 0.5rem 1rem;
   display: none;
 
@@ -74,6 +87,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   position: relative;
   height: 90vh;
   overflow: hidden;
+  background: -o-radial-gradient(#121212d5, #121212 90%);
   background: radial-gradient(#121212d5, #121212 90%);
 
   &.--in-vr {
@@ -95,14 +109,27 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   @include mobile_landscape {
-    height: 75vh;
+    height: 80vh;
+  }
+
+  @-webkit-keyframes spin-loader {
+    0% {
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(0deg);
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    100% {
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(360deg);
+      transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
   }
 
   @keyframes spin-loader {
     0% {
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(0deg);
       transform: translateX(-50%) translateY(-50%) rotate(0deg);
     }
     100% {
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(360deg);
       transform: translateX(-50%) translateY(-50%) rotate(360deg);
     }
   }
@@ -114,6 +141,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     top: 50%;
     font-size: 5rem;
     z-index: 0;
+    -webkit-animation: spin-loader 2s infinite forwards linear;
     animation: spin-loader 2s infinite forwards linear;
   }
 }
@@ -121,11 +149,12 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 .Gallery {
   position: relative;
   height: 100%;
-  // background-color: red;
   opacity: 0;
   z-index: 1;
 
   &.--loaded {
+    -webkit-transition: opacity 0.25s ease-out 2.5s;
+    -o-transition: opacity 0.25s ease-out 2.5s;
     transition: opacity 0.25s ease-out 2.5s;
     opacity: 1;
   }
@@ -155,6 +184,14 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     @include mobile_landscape {
       background-size: cover;
     }
+
+    &.--vr-condition-view {
+      width: 50%;
+
+      &:nth-of-type(2) {
+        left: 50%;
+      }
+    }
   }
 
   .pannellum-appear {
@@ -162,6 +199,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
   .pannellum-appear-active {
     opacity: 1;
+    -webkit-transition: opacity 1000ms ease-in;
+    -o-transition: opacity 1000ms ease-in;
     transition: opacity 1000ms ease-in;
   }
 }
@@ -169,15 +208,21 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 .CitySelector {
   z-index: 3;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   max-width: 762px;
   margin: 0 auto;
   left: 50%;
+  -webkit-transform: translateX(-50%) translateY(50%);
+  -ms-transform: translateX(-50%) translateY(50%);
   transform: translateX(-50%) translateY(50%);
   position: absolute;
   bottom: 4rem;
   width: 100%;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
 
@@ -185,16 +230,31 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     background-color: transparent;
     color: white;
     text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-direction: row;
     flex-direction: row;
     width: 25%;
 
     @include mobile_plus {
       &:nth-of-type(even) {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
         flex-direction: row-reverse;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
         justify-content: flex-start;
       }
     }
@@ -211,33 +271,58 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
           }
 
           &:nth-of-type(1) {
+            -webkit-transform: scale(0.7);
+            -ms-transform: scale(0.7);
             transform: scale(0.7);
+            -webkit-transition: -webkit-transform 0.15s ease-out;
+            transition: -webkit-transform 0.15s ease-out;
+            -o-transition: transform 0.15s ease-out;
             transition: transform 0.15s ease-out;
+            transition: transform 0.15s ease-out,
+              -webkit-transform 0.15s ease-out;
+            -webkit-transform-origin: center;
+            -ms-transform-origin: center;
             transform-origin: center;
           }
         }
       }
 
       &:hover {
+        -webkit-transition: -webkit-transform 0.15s ease-in;
+        transition: -webkit-transform 0.15s ease-in;
+        -o-transition: transform 0.15s ease-in;
         transition: transform 0.15s ease-in;
+        transition: transform 0.15s ease-in, -webkit-transform 0.15s ease-in;
         svg {
           path {
             &:nth-of-type(1) {
+              -webkit-transform-origin: center;
+              -ms-transform-origin: center;
               transform-origin: center;
+              -webkit-transition: -webkit-transform 0.15s ease-out;
+              transition: -webkit-transform 0.15s ease-out;
+              -o-transition: transform 0.15s ease-out;
               transition: transform 0.15s ease-out;
+              transition: transform 0.15s ease-out,
+                -webkit-transform 0.15s ease-out;
+              -webkit-transform: scale(0.9);
+              -ms-transform: scale(0.9);
               transform: scale(0.9);
             }
           }
         }
 
         &::after {
+          -webkit-transition: background-color 0.15s ease;
+          -o-transition: background-color 0.15s ease;
           transition: background-color 0.15s ease;
-          // background-color: $color-backdrop-light;
         }
       }
 
       &::after {
         content: '';
+        -webkit-transition: background-color 0.15s ease;
+        -o-transition: background-color 0.15s ease;
         transition: background-color 0.15s ease;
         background-color: $color-backdrop-super-light;
         position: absolute;
@@ -245,6 +330,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
         top: 0;
         left: 50%;
         top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-55%);
+        -ms-transform: translateX(-50%) translateY(-55%);
         transform: translateX(-50%) translateY(-55%);
         border-radius: 50%;
         z-index: -1;
@@ -263,6 +350,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       &.--left {
         @include mobile_landscape {
           &::after {
+            -webkit-transform: translateX(-66%) translateY(-55%);
+            -ms-transform: translateX(-66%) translateY(-55%);
             transform: translateX(-66%) translateY(-55%);
           }
           svg {
@@ -273,6 +362,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       &.--right {
         @include mobile_landscape {
           &::after {
+            -webkit-transform: translateX(-35%) translateY(-55%);
+            -ms-transform: translateX(-35%) translateY(-55%);
             transform: translateX(-35%) translateY(-55%);
           }
           svg {
@@ -291,7 +382,12 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
     @include mobile {
       width: 25%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-transform: translateX(0%) translateY(0%);
+      -ms-transform: translateX(0%) translateY(0%);
       transform: translateX(0%) translateY(0%);
       font-size: 0.75rem;
 
@@ -306,6 +402,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       max-width: 30%;
       width: 30%;
       line-height: 1.2;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
 
       svg {
@@ -318,9 +416,15 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   @include mobile {
     position: absolute;
     bottom: 1rem;
+    -webkit-transform: translateX(-50%) translateY(0%);
+    -ms-transform: translateX(-50%) translateY(0%);
     transform: translateX(-50%) translateY(0%);
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0.5rem;
   }
@@ -331,9 +435,18 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   .city-selected {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 50%;
 
@@ -371,9 +484,15 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   position: absolute;
   top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 90%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 
   &.--no-vr,
@@ -390,9 +509,9 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   .rhs {
-    // min-width: 23%;
-
     &.--no-vr {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
       justify-content: flex-end;
       min-width: revert;
       margin: 0;
@@ -403,10 +522,13 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     }
 
     @include mobile {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
       min-width: revert;
-      // margin-right: 4rem;
 
       &.--no-vr {
         min-width: 30%;
@@ -415,7 +537,6 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
     @include tiny-mobile {
       min-width: revert;
-      // margin-right: 4rem;
 
       &.--no-vr {
         min-width: 40%;
@@ -423,13 +544,18 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     }
 
     @include mobile_landscape {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
       min-width: revert;
-      // margin-right: 4rem;
 
       &.--no-vr {
         min-width: 25%;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
         justify-content: flex-end;
         min-width: revert;
       }
@@ -442,8 +568,9 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 }
 
 .VrSelector {
-  // display: flex;
   display: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   @include mobile {
@@ -475,10 +602,14 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       width: 1.2rem;
       position: absolute;
       border-radius: 50%;
+      -webkit-transform: translateX(15%) translateY(-50%);
+      -ms-transform: translateX(15%) translateY(-50%);
       transform: translateX(15%) translateY(-50%);
       left: 0%;
 
       &.--isVr {
+        -webkit-transform: translateX(-115%) translateY(-50%);
+        -ms-transform: translateX(-115%) translateY(-50%);
         transform: translateX(-115%) translateY(-50%);
         left: 100%;
       }
@@ -493,9 +624,13 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   letter-spacing: 1px;
   overflow: hidden;
   max-height: 4.5rem;
+  -webkit-transition: max-height 0.25s linear 0.5s;
+  -o-transition: max-height 0.25s linear 0.5s;
   transition: max-height 0.25s linear 0.5s;
 
   &.--isOpen {
+    -webkit-transition: max-height 0s linear 0s;
+    -o-transition: max-height 0s linear 0s;
     transition: max-height 0s linear 0s;
     max-height: 100vh;
   }
@@ -521,12 +656,19 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     border: white 2px solid;
     background: $color-backdrop;
 
+    &.--isOpen {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
     @include tiny-mobile {
       font-size: 0.8rem;
+      line-height: 1.2;
     }
 
     @include mobile_landscape {
       font-size: 0.85rem;
+      line-height: 1.2;
       padding: 0.25rem 0.5rem;
     }
   }
@@ -534,15 +676,23 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   .dropdown {
     border-radius: 2px;
     margin: 0;
-    max-height: 20rem;
+    max-height: 25rem;
     overflow-y: scroll;
     border: white 2px solid;
     border-top: none;
     border-bottom: none;
+    -webkit-transform: rotateX(90deg);
     transform: rotateX(90deg);
     background: transparent;
     pointer-events: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-transition: -webkit-transform 0.1s ease-out 0.1s;
+    transition: -webkit-transform 0.1s ease-out 0.1s;
+    -o-transition: transform 0.1s ease-out 0.1s;
     transition: transform 0.1s ease-out 0.1s;
+    transition: transform 0.1s ease-out 0.1s,
+      -webkit-transform 0.1s ease-out 0.1s;
 
     .condition-item {
       margin: 0;
@@ -551,13 +701,17 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       text-transform: capitalize;
       @include button-padding;
       opacity: 0;
+      -webkit-transition: opacity 0.15s ease-out;
+      -o-transition: opacity 0.15s ease-out;
       transition: opacity 0.15s ease-out;
 
       @include tiny-mobile {
         font-size: 0.8rem;
+        line-height: 1.2;
       }
 
       @include mobile_landscape {
+        line-height: 1.2;
         font-size: 0.85rem;
         padding: 0.25rem 0.5rem;
       }
@@ -565,13 +719,20 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
     &.--isOpen {
       pointer-events: all;
+      -webkit-transition: -webkit-transform 0.2s ease-in;
+      transition: -webkit-transform 0.2s ease-in;
+      -o-transition: transform 0.2s ease-in;
       transition: transform 0.2s ease-in;
+      transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+      -webkit-transform: rotateX(0deg);
       transform: rotateX(0deg);
       border-bottom: white 2px solid;
 
       .condition-item {
         opacity: 1;
         background: $color-backdrop;
+        -webkit-transition: opacity 0.15s ease-in 0.2s;
+        -o-transition: opacity 0.15s ease-in 0.2s;
         transition: opacity 0.15s ease-in 0.2s;
 
         &:hover {
@@ -579,6 +740,10 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
           color: $color-backdrop;
         }
       }
+    }
+
+    @include mobile {
+      max-height: 15rem;
     }
 
     @include mobile_landscape {
@@ -590,8 +755,14 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 .Intro {
   position: absolute;
   top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   left: 0;
   width: 100%;
@@ -602,12 +773,27 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   overflow: hidden;
   line-height: 1.4;
   opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in, -webkit-transform 0.25s ease-out 0s;
+  transition: opacity 0.5s ease-in, -webkit-transform 0.25s ease-out 0s;
+  -o-transition: opacity 0.5s ease-in, transform 0.25s ease-out 0s;
   transition: opacity 0.5s ease-in, transform 0.25s ease-out 0s;
+  transition: opacity 0.5s ease-in, transform 0.25s ease-out 0s,
+    -webkit-transform 0.25s ease-out 0s;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
   transform: translateY(0%);
 
   &.--hide {
+    -webkit-transition: opacity 0.5s ease-in,
+      -webkit-transform 0.25s ease-out 0.5s;
+    transition: opacity 0.5s ease-in, -webkit-transform 0.25s ease-out 0.5s;
+    -o-transition: opacity 0.5s ease-in, transform 0.25s ease-out 0.5s;
     transition: opacity 0.5s ease-in, transform 0.25s ease-out 0.5s;
+    transition: opacity 0.5s ease-in, transform 0.25s ease-out 0.5s,
+      -webkit-transform 0.25s ease-out 0.5s;
     opacity: 0;
+    -webkit-transform: translateY(-1000%);
+    -ms-transform: translateY(-1000%);
     transform: translateY(-1000%);
   }
 
@@ -619,6 +805,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     top: -9px;
     width: 110%;
     background-color: rgba(255, 255, 255, 0.397);
+    -webkit-filter: blur(15px) brightness(0.6);
     filter: blur(15px) brightness(0.6);
     left: -10px;
   }
@@ -642,6 +829,10 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     }
 
     p {
+      @include mobile {
+        font-size: 0.75rem;
+      }
+
       @include mobile_landscape {
         font-size: 0.75rem;
       }
@@ -649,17 +840,15 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   .inner-container {
-    position: absolute;
     z-index: 10;
     border: 2px solid white;
     border-radius: 0.5rem;
-    height: 80%;
+    max-width: 762px;
     margin: 2rem;
     padding: 2rem;
     background-color: rgba(255, 255, 255, 0.1);
 
     @include mobile {
-      height: 85%;
       padding: 1rem;
       margin: 1rem;
     }
@@ -667,16 +856,26 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     @include mobile_landscape {
       padding: 1rem;
       margin: 1rem;
-      height: 90%;
     }
 
     .button-bar {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
 
       .icon {
+        margin: 0 0 2rem 0;
+
         svg {
           font-size: 4rem;
 
@@ -691,8 +890,9 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
         @include tiny-mobile {
           display: none;
         }
-
-        margin: 0 0 2rem 0;
+        @include wide_slim {
+          display: none;
+        }
       }
 
       @include mobile_landscape {
@@ -707,12 +907,16 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       text-transform: uppercase;
       font-weight: bold;
       cursor: pointer;
+      -webkit-box-shadow: 2px 5px 16px 0px rgba(0, 0, 0, 0.329);
       box-shadow: 2px 5px 16px 0px rgba(0, 0, 0, 0.329);
+      -webkit-transition: background-color 0.25s ease, color 0.25s ease;
+      -o-transition: background-color 0.25s ease, color 0.25s ease;
       transition: background-color 0.25s ease, color 0.25s ease;
 
       &:hover {
         background-color: white;
         color: #2dadca;
+        -webkit-box-shadow: 2px 5px 16px 0px rgba(0255, 255, 255, 0.1);
         box-shadow: 2px 5px 16px 0px rgba(0255, 255, 255, 0.1);
       }
     }
@@ -720,22 +924,24 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 }
 
 .Share {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
 
-  &.--hide {
-    // overflow: hidden;
-  }
-
   @include mobile {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
 
   @include mobile_landscape {
-    // margin-right: 4rem;
   }
 
   @include tablet_plus {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
   }
 
@@ -746,7 +952,11 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   .button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-transition: opacity 0.25s ease-in;
+    -o-transition: opacity 0.25s ease-in;
     transition: opacity 0.25s ease-in;
     opacity: 1;
     position: absolute;
@@ -756,12 +966,17 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     }
 
     @include mobile {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
       top: 100%;
     }
 
     &.--hide {
       opacity: 0;
+      -webkit-transition: opacity 0.25s ease-in;
+      -o-transition: opacity 0.25s ease-in;
       transition: opacity 0.25s ease-in;
       pointer-events: none;
     }
@@ -773,15 +988,25 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       border: white 2px solid;
       width: 2.6rem;
       height: 2.6rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       margin-left: 0.5rem;
       border-radius: 50%;
       cursor: pointer;
+      -webkit-transition: background-color 0.15s ease;
+      -o-transition: background-color 0.15s ease;
       transition: background-color 0.15s ease;
 
       &:hover {
+        -webkit-transition: background-color 0.15s ease;
+        -o-transition: background-color 0.15s ease;
         transition: background-color 0.15s ease;
         background-color: white;
 
@@ -822,6 +1047,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   top: 50%;
   left: 50%;
   pointer-events: none;
+  -webkit-transform: translateX(-50%) translateY(50%);
+  -ms-transform: translateX(-50%) translateY(50%);
   transform: translateX(-50%) translateY(50%);
 
   p {
@@ -844,6 +1071,10 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   @include tablet_plus {
     display: none;
   }
+
+  @include mobile_landscape {
+    top: 3rem !important;
+  }
 }
 
 html.a-fullscreen {
@@ -862,10 +1093,17 @@ html.a-fullscreen {
   top: 50%;
   left: 50%;
   z-index: 99999;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   font-weight: bold;
   background: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -873,4 +1111,93 @@ html.a-fullscreen {
   button {
     display: none;
   }
+}
+
+.Description {
+  position: absolute;
+  width: 80%;
+  top: 48%;
+  z-index: 8;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: $color-backdrop;
+  border: 2px white solid;
+  max-width: 500px;
+  opacity: 1;
+  transition: opacity 0.25s ease 3.5s;
+  border-radius: 2px;
+  pointer-events: none;
+
+  &.--intro-visible {
+    opacity: 0;
+  }
+
+  &.--hide {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .close-button {
+    position: absolute;
+    right: -0.75rem;
+    top: -0.75rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+
+    &:after {
+      content: '';
+      height: 85%;
+      width: 85%;
+      background: rgb(220, 53, 69);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    svg {
+      fill: white;
+      z-index: 9;
+      font-size: 1.5rem;
+    }
+  }
+
+  .inner-container {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mobile {
+      padding: 1rem;
+    }
+
+    @include mobile_landscape {
+      padding: 1rem;
+    }
+  }
+
+  h4 {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    color: white;
+    line-height: 1.4;
+
+    @include mobile {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.a-dialog {
+  z-index: 9999;
 }

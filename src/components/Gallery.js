@@ -11,6 +11,7 @@ export default (props) => {
     vrIsOn,
     handleEnterVrMode,
     userDeniedDeviceVrSensors,
+    hasEnteredVrMode,
   } = props;
 
   const [isVrDisplay, setIsVrDisplay] = useState(false);
@@ -72,24 +73,22 @@ export default (props) => {
   useEffect(() => {
     if (!sceneElement) {
       const aScene = document.querySelector('a-scene');
-      console.log({ aScene });
       if (aScene) {
         setSceneElement(aScene);
         aScene.addEventListener('enter-vr', () => {
-          console.log('IN THE CALLBACK');
           handleEnterVrMode();
         });
       }
     }
   });
 
-  console.log({ sceneElement });
+  const doubleConditionClassMod = hasEnteredVrMode ? '--vr-condition-view' : '';
 
   return (
     <div className={`Gallery ${isLoading ? '' : '--loaded'}`}>
       {isVrDisplay && !userDeniedDeviceVrSensors ? (
-        <a-scene>
-          <a-sky src={cityImage}></a-sky>
+        <a-scene cursor="rayOrigin: mouse">
+          <a-sky camera look-controls mouse-cursor src={cityImage}></a-sky>
         </a-scene>
       ) : (
         <Pannellum
@@ -98,7 +97,7 @@ export default (props) => {
           image={panoImage}
           pitch={0}
           yaw={90}
-          hfov={120}
+          hfov={130}
           showControls={false}
           autoLoad
           orientationOnByDefault={vrIsOn}
@@ -107,13 +106,15 @@ export default (props) => {
           }}
         />
       )}
-      {/* <a-scene>
-        <a-sky src={cityImage}></a-sky>
-      </a-scene> */}
-
       {overlayImage && (
         <div
-          className="condition"
+          className={`condition ${doubleConditionClassMod}`}
+          style={{ backgroundImage: `url(${overlayImage})` }}
+        />
+      )}
+      {overlayImage && hasEnteredVrMode && (
+        <div
+          className={`condition ${doubleConditionClassMod}`}
           style={{ backgroundImage: `url(${overlayImage})` }}
         />
       )}

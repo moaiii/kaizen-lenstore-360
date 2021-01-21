@@ -29,7 +29,7 @@ const Nav = styled.div`
 
   a {
     color: #595959;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
     text-decoration: none;
   }
@@ -47,6 +47,7 @@ const Nav = styled.div`
     pointer-events: ${(props) => (props.open ? 'all' : 'none')};
     will-change: opacity, visibility;
     transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+    z-index: 99;
 
     li {
       margin: 0;
@@ -70,11 +71,15 @@ const NavItem = styled.div`
     margin-bottom: 0;
     font-size: 1.5em;
     font-weight: 700;
+
+    @media (max-width: 762px) {
+      font-size: 0.85rem;
+    }
   }
   span {
     width: 0;
     height: 0;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid #595959;
@@ -84,12 +89,12 @@ const NavItem = styled.div`
 `;
 const Breadcrumb = styled.div`
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 20px 12px;
   line-height: 1.1;
 
   a {
     color: #31b4cf;
-    font-size: 1rem;
+    font-size: 0.75rem;
     text-decoration: none;
 
     &:hover {
@@ -99,14 +104,17 @@ const Breadcrumb = styled.div`
     }
   }
   span {
+    font-size: 0.6rem;
     color: #636363;
     padding: 0 5px;
   }
 `;
 
-const Header = ({ copy, isDesktop }) => {
-  const { domain, locale, url, title, home, headerLinks } = copy;
+const Header = ({ copy, isDesktop, lang }) => {
+  const { domain, locale, url, headerLinks } = copy;
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const title = copy.title[lang];
 
   return (
     <Wrapper>
@@ -152,7 +160,7 @@ const Header = ({ copy, isDesktop }) => {
       </Nav>
       <Breadcrumb>
         <a href={domain} title="Lenstore">
-          {home}
+          Home
         </a>
         <span>&gt;</span>
         <a href={headerLinks[0].url} title={headerLinks[0].label}>
@@ -160,7 +168,7 @@ const Header = ({ copy, isDesktop }) => {
         </a>
         <span>&gt;</span>
         <a href={url} title={title}>
-          {title}
+          {copy.breadcrumb[lang]}
         </a>
       </Breadcrumb>
     </Wrapper>

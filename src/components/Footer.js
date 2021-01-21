@@ -115,13 +115,13 @@ const Logo = styled.a`
   }
 `;
 
-const Footer = ({ copy }) => (
+const Footer = ({ copy, lang }) => (
   <Wrapper>
     <InnerWrapper>
       <Logo href={copy.domain}>
         <img src={icons[`lenstore${copy.locale}`]} alt="Lenstore" />
       </Logo>
-      <ul>
+      <ul style={{ 'margin-bottom': '5px' }}>
         {copy.footerLinks.row1.map((link) => (
           <li key={link.url}>
             <a href={link.url} title={link.label}>
@@ -140,7 +140,7 @@ const Footer = ({ copy }) => (
         ))}
       </ul>
       <AlternateLinks>
-        <span>{copy.title}</span>
+        <span>{copy.breadcrumb[lang]}</span>
         <ul>
           {Object.keys(copy.baseUrl)
             .filter((key) => key !== copy.locale)

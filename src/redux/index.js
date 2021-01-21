@@ -66,7 +66,6 @@ const initialConditionState = {
     'eye floaters',
     'glaucoma',
     'tunnel vision',
-    'retinitis pigmentosa',
     'night blindness',
   ],
   conditionsIndex: 0,

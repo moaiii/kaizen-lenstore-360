@@ -2,7 +2,7 @@ import React from 'react';
 import { IoIosArrowDropleft, IoIosArrowDropright } from 'react-icons/io';
 
 export default (props) => {
-  const { cities, next, previous } = props;
+  const { cities, next, previous, copy, lang } = props;
 
   const thisCity = cities.CITIES[cities.selectedCity];
   const nextCity = cities.CITIES[cities.nextCity];
@@ -18,17 +18,17 @@ export default (props) => {
         <div className="arrow --left">
           <IoIosArrowDropleft />
         </div>
-        {previousCity}
+        {copy.cities[lang][previousCity]}
       </button>
       <div className="city-selected">
-        <p className="name">{thisCity}</p>
+        <p className="name">{copy.cities[lang][thisCity]}</p>
         <div className="position">( {cities.selectedCity + 1} / 7 )</div>
       </div>
       <button type="button" className="direction-button" onClick={() => next()}>
         <div className="arrow --right">
           <IoIosArrowDropright />
         </div>
-        {nextCity}
+        {copy.cities[lang][nextCity]}
       </button>
     </div>
   );

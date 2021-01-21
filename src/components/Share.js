@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { IoInformation } from 'react-icons/io5';
 import { BiCode } from 'react-icons/bi';
@@ -10,6 +10,7 @@ const IconContainer = (props) => {
 };
 
 export default (props) => {
+  const node = useRef();
   const { setInfoIsVisible, isMobile } = props;
   const [shareIsOpen, setShareIsOpen] = useState(window.innerWidth > 762);
 
@@ -68,8 +69,22 @@ export default (props) => {
 
   const shareIsOpenClassMod = !shareIsOpen ? '--hide' : '';
 
+  const handleClick = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    setShareIsOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
+
   return (
-    <div className={`Share ${shareIsOpenClassMod}`}>
+    <div className={`Share ${shareIsOpenClassMod}`} ref={node}>
       <div className={`button-container ${shareIsOpenClassMod}`}>
         <div className="share-item" onClick={() => handleSocial('facebook')}>
           {facebook}
@@ -77,7 +92,6 @@ export default (props) => {
         <div className="share-item" onClick={() => handleSocial('twitter')}>
           {twitter}
         </div>
-        <div className="share-item --code">{code}</div>
         <div className="share-item --info" onClick={() => setInfoIsVisible()}>
           {information}
         </div>

@@ -6,7 +6,9 @@ export default (props) => {
 
   const {
     handleConditionSelect,
-    conditions: { CONDITIONS, condition, conditionsIndex },
+    copy,
+    lang,
+    conditions: { CONDITIONS, condition },
   } = props;
 
   const isOpenClassMod = isOpen ? '--isOpen' : '';
@@ -33,10 +35,9 @@ export default (props) => {
     >
       <div
         className={`selected ${isOpenClassMod}`}
-        // onMouseOver={() => setIsOpen(true)}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {condition}
+        {copy.condition[lang][condition].name}
       </div>
       <ul className={`dropdown ${isOpenClassMod}`}>
         {CONDITIONS.map((el) => {
@@ -49,7 +50,7 @@ export default (props) => {
               key={el}
               className="condition-item"
             >
-              {el}
+              {copy.condition[lang][el].name}
             </li>
           );
         })}

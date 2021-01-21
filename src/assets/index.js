@@ -101,7 +101,6 @@ const images = {
     'eye floaters': overlayEyeFloaters,
     glaucoma: overlayGlaucoma,
     'macular degeneration': overlayMacularDegeneration,
-    'retinitis pigmentosa': overlayRetinisPigmentosa,
     'tunnel vision': overlayTunnelVision,
   },
 };
