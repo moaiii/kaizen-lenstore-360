@@ -20,13 +20,23 @@ WebFont.load({ google: { families: ['Lato:400,700'] } });
 
 const getLang = () => {
   const allowedLangs = ['en', 'es', 'de', 'it'];
-  const langFromPath = window.location.pathname.split('/').filter((el) => {
-    return el.length === 2 && allowedLangs.includes(el);
-  });
 
-  if (langFromPath.length > 0) {
-    return langFromPath.pop();
+  if (process.env.REACT_APP_BUILD === 'dev') {
+    const [, lang] = window.location.search.split('=');
+
+    if (allowedLangs.includes(lang)) {
+      return lang;
+    }
+  } else {
+    const langFromPath = window.location.pathname.split('/').filter((el) => {
+      return el.length === 2 && allowedLangs.includes(el);
+    });
+
+    if (langFromPath.length > 0) {
+      return langFromPath.pop();
+    }
   }
+
   return 'en';
 };
 

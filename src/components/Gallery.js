@@ -17,10 +17,11 @@ export default (props) => {
   const [isVrDisplay, setIsVrDisplay] = useState(false);
   const [cityImage, setCityImage] = useState();
   const [overlayImage, setOverLayImage] = useState();
-  const selectedCity = cities.CITIES[cities.selectedCity];
   const [isLoading, setIsLoading] = useState(false);
   const [panoImage, setPanoImage] = useState();
   const [sceneElement, setSceneElement] = useState(null);
+
+  const selectedCity = cities.CITIES[cities.selectedCity];
 
   /**
    * Overlay image
@@ -73,6 +74,7 @@ export default (props) => {
   useEffect(() => {
     if (!sceneElement) {
       const aScene = document.querySelector('a-scene');
+      console.log({ aScene });
       if (aScene) {
         setSceneElement(aScene);
         aScene.addEventListener('enter-vr', () => {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { VscLoading } from 'react-icons/vsc';
 import { AiFillCloseSquare } from 'react-icons/ai';
+import { get } from 'lodash';
 import {
   setVrIsOn,
   selectCondition,
@@ -21,20 +22,35 @@ const Layout = (props) => {
   const { lang, copy } = props;
   const [hasEnteredVrMode, setHasEnteredVrMode] = useState(false);
   const [denyButton, setDenyButton] = useState(false);
+  const [allowButton, setAllowButton] = useState(false);
   const [vrIsOnRender, setVrIsOnRender] = useState();
   const [userDeniedDeviceVrSensors, setUserDeniedDeviceVrSensors] = useState(
     false,
   );
+  const [userAllowDeviceVrSensors, setUserAllowDeviceVrSensors] = useState(
+    false,
+  );
   const [appearDescription, setAppearDescription] = useState(false);
+  const [isVrDisplay, setIsVrDisplay] = useState(false);
 
   useEffect(() => {
     setVrIsOnRender(props.application.vrIsOn);
   }, [props.application.vrIsOn]);
 
+  /**
+   *
+   *
+   * Enter VR mode
+   */
   const handleEnterVrMode = () => {
     setHasEnteredVrMode(true);
   };
 
+  /**
+   *
+   *
+   * Close the VR full screen ?
+   */
   const handleExitVrMode = () => {
     const aScene = document.querySelector('a-scene');
 
@@ -44,6 +60,11 @@ const Layout = (props) => {
     }
   };
 
+  /**
+   *
+   *
+   * Did user deny sensors ?
+   */
   useEffect(() => {
     if (!denyButton) {
       const denyButtonElement = document.getElementsByClassName(
@@ -54,23 +75,92 @@ const Layout = (props) => {
         setDenyButton(denyButtonElement[0]);
         denyButtonElement[0].addEventListener('click', () => {
           setUserDeniedDeviceVrSensors(true);
+          localStorage.setItem('userHasSetVrPermissions', true);
         });
       }
     }
   });
 
-  useEffect(async () => {
-    if (!props.application.infoIsVisible) {
-      await new Promise((r) => setTimeout(r, 1500));
-      setAppearDescription(true);
-    }
-  }, [props.application.infoIsVisible]);
+  /**
+   *
+   *
+   * Did user accept sensors ?
+   */
+  useEffect(() => {
+    if (!allowButton) {
+      const allowButtonElement = document.getElementsByClassName(
+        'a-dialog-allow-button',
+      );
 
+      if (allowButtonElement.length > 0) {
+        setAllowButton(allowButtonElement[0]);
+        allowButtonElement[0].addEventListener('click', () => {
+          setUserAllowDeviceVrSensors(true);
+          localStorage.setItem('userHasSetVrPermissions', true);
+        });
+      }
+    }
+  });
+
+  /**
+   *
+   *
+   * Is device VR ?
+   */
+  useEffect(async () => {
+    const vrd = AFRAME.utils.device.getVRDisplay();
+    const vrDeviceName = get(vrd, 'displayName', false);
+    if (typeof vrDeviceName === 'string' && vrDeviceName.length > 0) {
+      setIsVrDisplay(true);
+    }
+  }, []);
+
+  /**
+   *
+   *
+   * Make description appear
+   */
+  useEffect(async () => {
+    const userHasSetVrPermissions = localStorage.getItem(
+      'userHasSetVrPermissions',
+    );
+
+    if (!props.application.infoIsVisible) {
+      if (isVrDisplay) {
+        if (
+          userDeniedDeviceVrSensors ||
+          userAllowDeviceVrSensors ||
+          userHasSetVrPermissions
+        ) {
+          await new Promise((r) => setTimeout(r, 1500));
+          setAppearDescription(true);
+        }
+      }
+
+      if (!isVrDisplay) {
+        await new Promise((r) => setTimeout(r, 1500));
+        setAppearDescription(true);
+      }
+    }
+  }, [
+    props.application.infoIsVisible,
+    isVrDisplay,
+    userDeniedDeviceVrSensors,
+    userAllowDeviceVrSensors,
+  ]);
+
+  /**
+   *
+   *
+   * Special CSS classes
+   */
   const vrModeEnabledClassMod = hasEnteredVrMode ? '--in-vr' : '';
 
   const vrSensorsDeniedClassMod = userDeniedDeviceVrSensors
     ? '--vr-denied'
     : '';
+
+  console.log({ isVrDisplay });
 
   return (
     <div className={`Layout ${vrModeEnabledClassMod}`}>
