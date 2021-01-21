@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
-import { hydrate, render } from 'react-dom';
+import { render } from 'react-dom';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import WebFont from 'webfontloader';
@@ -18,7 +18,33 @@ import './assets/index.css';
 
 WebFont.load({ google: { families: ['Lato:400,700'] } });
 
-const lang = 'es';
+const getLang = () => {
+  const allowedLangs = ['en', 'es', 'de', 'it'];
+  const langFromPath = window.location.pathname.split('/').filter((el) => {
+    return el.length === 2 && allowedLangs.includes(el);
+  });
+
+  if (langFromPath.length > 0) {
+    return langFromPath.pop();
+  }
+  return 'en';
+};
+
+const lang = getLang();
+
+window.addEventListener('orientationchange', () => {
+  if (window.innerHeight > window.innerWidth) {
+    setTimeout(() => {
+      const gallery = document.getElementById('gallery');
+      if (gallery) {
+        gallery.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
+    }, 500);
+  }
+});
 
 const theme = {
   colors: {

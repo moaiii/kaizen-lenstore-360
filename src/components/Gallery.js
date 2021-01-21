@@ -85,7 +85,7 @@ export default (props) => {
   const doubleConditionClassMod = hasEnteredVrMode ? '--vr-condition-view' : '';
 
   return (
-    <div className={`Gallery ${isLoading ? '' : '--loaded'}`}>
+    <div className={`Gallery ${isLoading ? '' : '--loaded'}`} id="gallery">
       {isVrDisplay && !userDeniedDeviceVrSensors ? (
         <a-scene cursor="rayOrigin: mouse">
           <a-sky camera look-controls mouse-cursor src={cityImage}></a-sky>

@@ -633,7 +633,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   @include tiny-mobile {
-    max-width: 8rem;
+    max-width: 9rem;
     font-size: 0.8rem;
   }
 
@@ -814,6 +814,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
       @include mobile_landscape {
         font-size: 1rem;
+        margin-bottom: 0.5rem;
       }
 
       @include tall_mobile {
@@ -828,6 +829,15 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
       @include mobile_landscape {
         font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (min-height: 550px) {
+        font-size: 0.8rem;
+      }
+
+      @media (min-height: 700px) {
+        font-size: 1rem;
       }
     }
   }
@@ -911,6 +921,14 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
         color: #2dadca;
         -webkit-box-shadow: 2px 5px 16px 0px rgba(0255, 255, 255, 0.1);
         box-shadow: 2px 5px 16px 0px rgba(0255, 255, 255, 0.1);
+      }
+
+      @include mobile_landscape {
+        font-size: 0.75rem;
+      }
+
+      @include mobile_landscape {
+        font-size: 0.75rem;
       }
     }
   }
@@ -1122,6 +1140,10 @@ html.a-fullscreen {
   pointer-events: none;
   transition-delay: 3.5s;
 
+  @include mobile_landscape {
+    width: 95%;
+  }
+
   &.--cataracts {
     transition-delay: 1s;
   }
@@ -1176,7 +1198,7 @@ html.a-fullscreen {
     }
 
     @include mobile_landscape {
-      padding: 1rem;
+      padding: 0.5rem;
     }
   }
 
@@ -1184,6 +1206,11 @@ html.a-fullscreen {
     color: white;
     font-weight: bold;
     text-transform: uppercase;
+
+    @include mobile_landscape {
+      font-size: 0.9rem;
+      margin: 0 0 0.5rem 0;
+    }
   }
 
   p {
@@ -1193,6 +1220,10 @@ html.a-fullscreen {
 
     @include mobile {
       font-size: 0.85rem;
+    }
+
+    @include mobile_landscape {
+      font-size: 0.75rem;
     }
   }
 }
