@@ -1,10 +1,3 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
-
 * {
   margin: 0;
   padding: 0;
@@ -105,7 +98,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
   @include mobile {
     min-height: 80vh;
-    height: 80vh;
+    height: 70vh;
   }
 
   @include mobile_landscape {
@@ -683,7 +676,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     border-bottom: none;
     -webkit-transform: rotateX(90deg);
     transform: rotateX(90deg);
-    background: transparent;
+    background: rgb(14, 14, 14);
     pointer-events: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -730,7 +723,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
       .condition-item {
         opacity: 1;
-        background: $color-backdrop;
+        background: rgb(14, 14, 14);
         -webkit-transition: opacity 0.15s ease-in 0.2s;
         -o-transition: opacity 0.15s ease-in 0.2s;
         transition: opacity 0.15s ease-in 0.2s;
@@ -1124,15 +1117,21 @@ html.a-fullscreen {
   border: 2px white solid;
   max-width: 500px;
   opacity: 1;
-  transition: opacity 0.25s ease 3.5s;
+  transition: opacity 0.25s ease;
   border-radius: 2px;
   pointer-events: none;
+  transition-delay: 3.5s;
+
+  &.--cataracts {
+    transition-delay: 1s;
+  }
 
   &.--intro-visible {
     opacity: 0;
   }
 
   &.--hide {
+    transition-delay: 0s;
     opacity: 0;
     transition: opacity 0.25s ease;
   }

@@ -36,7 +36,10 @@ export default (props) => {
     !isVisible || condition === 'normal' ? '--hide' : '';
 
   return (
-    <div className={`Description ${isVisibleClassMod} `} ref={node}>
+    <div
+      className={`Description ${isVisibleClassMod} --${condition}`}
+      ref={node}
+    >
       <div
         className={`close-button ${isVisibleClassMod}`}
         onClick={() => {

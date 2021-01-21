@@ -25,6 +25,7 @@ const Layout = (props) => {
   const [userDeniedDeviceVrSensors, setUserDeniedDeviceVrSensors] = useState(
     false,
   );
+  const [appearDescription, setAppearDescription] = useState(false);
 
   useEffect(() => {
     setVrIsOnRender(props.application.vrIsOn);
@@ -57,6 +58,13 @@ const Layout = (props) => {
       }
     }
   });
+
+  useEffect(async () => {
+    if (!props.application.infoIsVisible) {
+      await new Promise((r) => setTimeout(r, 1500));
+      setAppearDescription(true);
+    }
+  }, [props.application.infoIsVisible]);
 
   const vrModeEnabledClassMod = hasEnteredVrMode ? '--in-vr' : '';
 
@@ -114,7 +122,7 @@ const Layout = (props) => {
         infoIsVisible={props.application.infoIsVisible}
       />
       <VscLoading className="loading-spinner" />
-      {!props.application.infoIsVisible && (
+      {appearDescription && (
         <Description
           copy={copy}
           lang={lang}
