@@ -74,7 +74,7 @@ export default (props) => {
   useEffect(() => {
     if (!sceneElement) {
       const aScene = document.querySelector('a-scene');
-      console.log({ aScene });
+
       if (aScene) {
         setSceneElement(aScene);
         aScene.addEventListener('enter-vr', () => {
@@ -99,7 +99,9 @@ export default (props) => {
           image={panoImage}
           pitch={0}
           yaw={90}
-          hfov={130}
+          hfov={100}
+          minHfov={50}
+          maxHfov={110}
           showControls={false}
           autoLoad
           orientationOnByDefault={vrIsOn}

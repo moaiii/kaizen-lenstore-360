@@ -3,9 +3,16 @@
   "private": true,
   "homepage": "http://kaizen-lenstore-360.s3-website-eu-west-1.amazonaws.com",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "postbuild": "react-snap"
+    "start": "REACT_APP_LANG=en react-scripts start",
+    "build:cleanup": "rm -rf build-en && rm -rf build-it && rm -rf build-es && rm -rf build-de && rm -rf builds",
+    "build:pre": "rm -rf build && mkdir builds && chmod 777 builds",
+    "build:post": "rm -rf build && mv build-en builds && mv build-de builds && mv build-es builds && mv build-it builds",
+    "build:en": "REACT_APP_LANG=en react-scripts build && mv build build-en",
+    "build:de": "REACT_APP_LANG=de react-scripts build && mv build build-de",
+    "build:it": "REACT_APP_LANG=it react-scripts build && mv build build-it",
+    "build:es": "REACT_APP_LANG=es react-scripts build && mv build build-es",
+    "build:locales": "npm run build:pre && npm run build:en && npm run build:de && npm run build:it && npm run build:es && npm run build:post",
+    "build": "REACT_APP_LANG=en react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"

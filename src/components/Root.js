@@ -160,7 +160,20 @@ const Layout = (props) => {
     ? '--vr-denied'
     : '';
 
-  console.log({ isVrDisplay });
+  /**
+     *   const modalDisplayStyle =
+    !appearDescription &&
+    window.mobileCheck() === true &&
+    !props.application.infoIsVisible
+      ? {
+          position: 'fixed',
+          height: '100vh',
+          width: '100vw',
+          top: 0,
+          left: 0,
+        }
+      : null;
+     */
 
   return (
     <div className={`Layout ${vrModeEnabledClassMod}`}>
@@ -171,21 +184,26 @@ const Layout = (props) => {
       >
         <AiFillCloseSquare />
       </button>
+
       <div
         className={`TopControls ${vrSensorsDeniedClassMod}`}
         id="top-controls"
       >
-        <ConditionSelector
-          copy={copy}
-          lang={lang}
-          conditions={props.conditions}
-          handleConditionSelect={props.selectCondition}
-        />
-        <div className="rhs" id="vr-share-container">
-          <SocialShare
-            isMobile={props.application.isMobile}
-            setInfoIsVisible={props.setInfoIsVisible}
+        {appearDescription && (
+          <ConditionSelector
+            copy={copy}
+            lang={lang}
+            conditions={props.conditions}
+            handleConditionSelect={props.selectCondition}
           />
+        )}
+        <div className="rhs" id="vr-share-container">
+          {appearDescription && (
+            <SocialShare
+              isMobile={props.application.isMobile}
+              setInfoIsVisible={props.setInfoIsVisible}
+            />
+          )}
           <VrSelector vrIsOn={vrIsOnRender} setVrIsOn={props.setVrIsOn} />
         </div>
       </div>
@@ -197,13 +215,15 @@ const Layout = (props) => {
         handleEnterVrMode={handleEnterVrMode}
         userDeniedDeviceVrSensors={userDeniedDeviceVrSensors}
       />
-      <CitySelector
-        copy={copy}
-        lang={lang}
-        cities={props.cities}
-        next={props.nextCity}
-        previous={props.previousCity}
-      />
+      {appearDescription && (
+        <CitySelector
+          copy={copy}
+          lang={lang}
+          cities={props.cities}
+          next={props.nextCity}
+          previous={props.previousCity}
+        />
+      )}
       <IntroScreen
         copy={copy}
         lang={lang}

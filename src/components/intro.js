@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { RiDragMoveLine } from 'react-icons/ri';
+import React from 'react';
+import drag from '../assets/icons/drag.svg';
 import { images } from '../assets';
 
 export default (props) => {
@@ -21,7 +21,7 @@ export default (props) => {
         </div>
         <div className="button-bar">
           <div className="icon">
-            <RiDragMoveLine />
+            <img src={drag} alt="lenstore-drag" />
           </div>
           <button type="button" onClick={() => setInfoIsVisible()}>
             {copy.intro[lang].cta}

@@ -78,7 +78,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 }
 .Layout {
   position: relative;
-  height: 90vh;
+  height: 85vh;
   overflow: hidden;
   background: -o-radial-gradient(#121212d5, #121212 90%);
   background: radial-gradient(#121212d5, #121212 90%);
@@ -97,8 +97,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   @include mobile {
-    min-height: 80vh;
-    height: 70vh;
+    min-height: 70vh;
+    height: 75vh;
   }
 
   @include mobile_landscape {
@@ -239,6 +239,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     -ms-flex-direction: row;
     flex-direction: row;
     width: 25%;
+    transition: opacity 0.25s ease-out;
 
     @include mobile_plus {
       &:nth-of-type(even) {
@@ -442,6 +443,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     -ms-flex-align: center;
     align-items: center;
     width: 50%;
+    transition: opacity 0.25s ease;
 
     .name {
       text-transform: uppercase;
@@ -647,7 +649,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     @include button-padding;
     text-transform: capitalize;
     border: white 2px solid;
-    background: $color-backdrop;
+    background: rgba(14, 14, 14, 0.8);
 
     &.--isOpen {
       border-bottom-left-radius: 0;
@@ -676,7 +678,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     border-bottom: none;
     -webkit-transform: rotateX(90deg);
     transform: rotateX(90deg);
-    background: rgb(14, 14, 14);
+    background: rgba(14, 14, 14, 0.8);
     pointer-events: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -686,6 +688,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     transition: transform 0.1s ease-out 0.1s;
     transition: transform 0.1s ease-out 0.1s,
       -webkit-transform 0.1s ease-out 0.1s;
+    padding: 0.5rem 0 0.5rem 0rem;
 
     .condition-item {
       margin: 0;
@@ -693,6 +696,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       list-style: none;
       text-transform: capitalize;
       @include button-padding;
+      // background: rgba(14, 14, 14, 0.4);
       opacity: 0;
       -webkit-transition: opacity 0.15s ease-out;
       -o-transition: opacity 0.15s ease-out;
@@ -723,7 +727,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
       .condition-item {
         opacity: 1;
-        background: rgb(14, 14, 14);
+        // background: rgba(14, 14, 14, 0.4);
         -webkit-transition: opacity 0.15s ease-in 0.2s;
         -o-transition: opacity 0.15s ease-in 0.2s;
         transition: opacity 0.15s ease-in 0.2s;
@@ -877,7 +881,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       justify-content: center;
 
       .icon {
-        margin: 0 0 2rem 0;
+        // margin: 0 0 1rem 0;
 
         svg {
           font-size: 4rem;
@@ -995,7 +999,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
   .share-item {
     .icon-container {
-      background-color: $color-backdrop;
+      background-color: rgba(14, 14, 14, 0.8);
       border: white 2px solid;
       width: 2.6rem;
       height: 2.6rem;
@@ -1135,9 +1139,8 @@ html.a-fullscreen {
   border: 2px white solid;
   max-width: 500px;
   opacity: 1;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease transform 0.25s ease 0.5s;
   border-radius: 2px;
-  pointer-events: none;
   transition-delay: 3.5s;
 
   @include mobile_landscape {
@@ -1155,7 +1158,8 @@ html.a-fullscreen {
   &.--hide {
     transition-delay: 0s;
     opacity: 0;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease transform 0.25s ease 0.5s;
+    transform: translateX(-50%) translateY(-1000%);
   }
 
   .close-button {
@@ -1168,8 +1172,8 @@ html.a-fullscreen {
 
     &:after {
       content: '';
-      height: 85%;
-      width: 85%;
+      height: 80%;
+      width: 80%;
       background: rgb(220, 53, 69);
       position: absolute;
       top: 50%;
