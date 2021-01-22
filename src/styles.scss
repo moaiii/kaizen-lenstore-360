@@ -1169,12 +1169,13 @@ html.a-fullscreen {
     height: 1.5rem;
     width: 1.5rem;
     border-radius: 50%;
+    cursor: pointer;
 
     &:after {
       content: '';
       height: 80%;
       width: 80%;
-      background: rgb(220, 53, 69);
+      background: rgb(44, 44, 44);
       position: absolute;
       top: 50%;
       left: 50%;

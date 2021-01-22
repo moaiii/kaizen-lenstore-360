@@ -172,35 +172,35 @@
       },
       "condition": {
         "name": "condition",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Condition"
       },
       "deuteranopia": {
         "name": "deuteranopia",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Deuteranopia is the most common form of colour deficiency in the world and is characterised by the inability to distinguish red and green pigments."
       },
       "macular degeneration": {
         "name": "macular degeneration",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Age-related macular degeneration is a condition that tends to get worse over time, and is the leading cause of severe and permanent vision loss in people aged over 60. The condition is caused when the macular, which is the small central portion of your retina, wears down, with symptoms including dark and blurry vision, as well as a reduction in the ability to see."
       },
       "cataracts": {
         "name": "cataracts",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Cataracts is a result of your eye lens becoming clouded, and experiencing it is often compared to looking through a frosty or foggy window. Symptoms develop over time and can also include blurry vision, sensitivity to light, difficulty seeing at night, seeing halos around lights and even experiencing double vision in one eye."
       },
       "eye floaters": {
         "name": "eye floaters",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Often causing no harm, eye floaters can look like spots, rings or web-like lines that move around through your field of vision. They are commonly seen as objects in front of your eyes, when in fact eye floaters are actually in your eye. Eye floaters can sometimes be a sign of another health issue or eye condition."
       },
       "glaucoma": {
         "name": "glaucoma",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Glaucoma is one of the most common global eye conditions that results from the optic nerve becoming damaged in your eye. The cause of glaucoma is often due to a build up of fluid in the front part of your eye, leading to a build up of pressure that damages the optic nerve. Symptoms include intense eye pain, blurred vision, tunnel vision, sensitivity around the eye, red eye and seeing rings around lights, as well as also causing headaches and feelings of nausea."
       },
       "tunnel vision": {
         "name": "tunnel vision",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Tunnel vision occurs when someone loses their peripheral vision, whilst still having the ability to see in its central vision. As a result tunnel vision causes your sight to be constricted to a particular central area, which is where it coins its name from. This eye condition can occur from a damaged optic nerve, making glaucoma a common cause."
       },
       "night blindness": {
         "name": "night blindness",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Also known as nyctalopia, this eye conditions causes difficulty for people to see in dimly lit environments and at night. The condition can occur for a number of reasons, including cataracts and retinitis pigmentosa; a condition which occurs when dark pigment collects in your retina and creates tunnel vision."
       }
     },
     "es": {
@@ -321,8 +321,8 @@
   "intro": {
     "en": {
       "title": "View 360: See the world behind these eye conditions",
-      "blurb1": "Whilst we all live in the same world, we might not be seeing it in the same way as others. To raise awareness, we have created 360 views of some of the greatest sights on the globe, and shown just how people may be experiencing these places that have an eye condition.",
-      "blurb2": "From colour deficiency to glaucoma, this is how others are seeing some of the planet's most iconic sights.",
+      "blurb1": "Whilst we all live in the same world, we don't all see it in the same way. From colour deficiency to glaucoma, night blindness to tunnel vision, and macular degeneration to cataracts, there is a wide range of eye conditions. ",
+      "blurb2": "To raise awareness of common eye conditions, we have combined 360 views of the planet's most iconic sights with overlays of each condition so you can experience how others see.",
       "cta": "explore"
     },
     "it": {
