@@ -69,7 +69,7 @@ const initialConditionState = {
     'night blindness',
   ],
   conditionsIndex: 0,
-  condition: 'cataracts',
+  condition: 'normal',
 };
 
 const conditions = createSlice({

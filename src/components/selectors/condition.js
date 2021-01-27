@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
 
 export default (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +39,7 @@ export default (props) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         {copy.condition[lang][condition].name}
+        {isOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
       </div>
       <ul className={`dropdown ${isOpenClassMod}`}>
         {CONDITIONS.map((el) => {

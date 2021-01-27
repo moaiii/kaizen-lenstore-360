@@ -18,6 +18,7 @@ export default (props) => {
           <h2>{copy.intro[lang].title}</h2>
           <p>{copy.intro[lang].blurb1}</p>
           <p>{copy.intro[lang].blurb2}</p>
+          <p>{copy.intro[lang].blurb3}</p>
         </div>
         <div className="button-bar">
           <div className="icon">

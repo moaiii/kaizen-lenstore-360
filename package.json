@@ -12,7 +12,8 @@
     "build:it": "REACT_APP_LANG=it react-scripts build && mv build build-it",
     "build:es": "REACT_APP_LANG=es react-scripts build && mv build build-es",
     "build:locales": "npm run build:pre && npm run build:en && npm run build:de && npm run build:it && npm run build:es && npm run build:post",
-    "build": "REACT_APP_LANG=en react-scripts build"
+    "build": "REACT_APP_LANG=en react-scripts build",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"

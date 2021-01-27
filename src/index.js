@@ -111,10 +111,10 @@ const App = () => {
         <html lang={copy.lang} />
         <title>{`${copy.title[lang]} | Lenstore`}</title>
         <meta name="description" content={copy.description[lang]} />
-        <meta property="og:title" content={copy.title[lang]} />
+        <meta property="og:title" content={copy['meta-title'][lang]} />
         <meta property="og:description" content={copy.description[lang]} />
         <meta property="og:url" content={copy.url} />
-        <meta property="og:locale" content={copy.ogLocale} />
+        <meta property="og:locale" content={copy.ogLocale[lang]} />
         <meta property="og:image" content={`${copy.url}/opengraph.png`} />
         <meta
           property="og:image:secure_url"
@@ -122,7 +122,7 @@ const App = () => {
         />
         <meta name="twitter:image" content={`${copy.url}/opengraph.png`} />
         <meta name="twitter:site" content={`@${copy.twitter}`} />
-        <meta name="twitter:title" content={copy.title[lang]} />
+        <meta name="twitter:title" content={copy['meta-title'][lang]} />
         <meta name="twitter:description" content={copy.description[lang]} />
         <meta name="twitter:url" content={copy.url} />
         <link rel="canonical" href={copy.url} />

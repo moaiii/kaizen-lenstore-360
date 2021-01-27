@@ -650,6 +650,9 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     text-transform: capitalize;
     border: white 2px solid;
     background: rgba(14, 14, 14, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     &.--isOpen {
       border-bottom-left-radius: 0;
@@ -1235,4 +1238,9 @@ html.a-fullscreen {
 
 .a-dialog {
   z-index: 9999;
+}
+
+h1 {
+  visibility: hidden;
+  position: fixed;
 }
