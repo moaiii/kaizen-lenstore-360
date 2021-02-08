@@ -3,18 +3,18 @@ import { createStore, combineReducers } from 'redux';
 
 const initialCityState = {
   CITIES: [
-    'dubai',
-    'new york',
-    'sydney',
     'paris',
     'venice',
     'london',
     'hong kong',
+    'dubai',
+    'new york',
+    'sydney',
   ],
   selectedCity: 0,
   previousCity: 6,
   nextCity: 1,
-  city: 'dubai',
+  city: 'paris',
 };
 
 const cities = createSlice({

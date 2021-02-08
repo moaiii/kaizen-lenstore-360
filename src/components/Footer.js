@@ -116,10 +116,10 @@ const Logo = styled.a`
 `;
 
 const Footer = ({ copy, lang }) => (
-  <Wrapper>
+  <Wrapper id="footer">
     <InnerWrapper>
       <Logo href={copy.domain}>
-        <img src={icons[`lenstore${copy.locale}`]} alt="Lenstore" />
+        <img src={icons[`lenstore${lang}`]} alt="Lenstore" />
       </Logo>
       <ul style={{ 'margin-bottom': '5px' }}>
         {copy.footerLinks.row1.map((link) => (

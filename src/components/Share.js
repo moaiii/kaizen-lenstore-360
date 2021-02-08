@@ -3,7 +3,6 @@ import { FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { IoInformation } from 'react-icons/io5';
 import { BiCode } from 'react-icons/bi';
 import { HiOutlineShare } from 'react-icons/hi';
-import copy from '../assets/copy.json';
 
 const IconContainer = (props) => {
   return <div className="icon-container">{props.children}</div>;
@@ -11,7 +10,7 @@ const IconContainer = (props) => {
 
 export default (props) => {
   const node = useRef();
-  const { setInfoIsVisible, isMobile } = props;
+  const { setInfoIsVisible, copy, lang } = props;
   const [shareIsOpen, setShareIsOpen] = useState(window.innerWidth > 762);
 
   const handleSocial = (provider) => {
@@ -24,7 +23,7 @@ export default (props) => {
         break;
 
       case 'twitter':
-        href = `https://twitter.com/intent/tweet?text=${copy.description}&url=${process.env.REACT_APP_HOMEPAGE}`;
+        href = `https://twitter.com/intent/tweet?text=${copy.description[lang]}&url=${process.env.REACT_APP_HOMEPAGE}`;
         break;
 
       default:

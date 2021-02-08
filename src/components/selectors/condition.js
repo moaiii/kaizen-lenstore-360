@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
+import { FaHandPointLeft } from 'react-icons/fa';
 
 export default (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ export default (props) => {
     copy,
     lang,
     conditions: { CONDITIONS, condition },
+    setHasBeenClickedOnce,
   } = props;
 
   const isOpenClassMod = isOpen ? '--isOpen' : '';
@@ -36,7 +38,10 @@ export default (props) => {
     >
       <div
         className={`selected ${isOpenClassMod}`}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setHasBeenClickedOnce(true);
+          setIsOpen(!isOpen);
+        }}
       >
         {copy.condition[lang][condition].name}
         {isOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}

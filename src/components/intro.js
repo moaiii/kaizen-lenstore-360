@@ -8,7 +8,7 @@ export default (props) => {
   const thisCity = cities.CITIES[cities.selectedCity];
 
   return (
-    <div className={`Intro ${hideClasMod}`}>
+    <div className={`Intro ${hideClasMod}`} id="intro">
       <div
         className="blur"
         style={{ backgroundImage: `url(${images[thisCity].normal})` }}
@@ -21,9 +21,7 @@ export default (props) => {
           <p>{copy.intro[lang].blurb3}</p>
         </div>
         <div className="button-bar">
-          <div className="icon">
-            <img src={drag} alt="lenstore-drag" />
-          </div>
+          <img className="icon" src={drag} alt="lenstore-drag" />
           <button type="button" onClick={() => setInfoIsVisible()}>
             {copy.intro[lang].cta}
           </button>

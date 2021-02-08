@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { VscLoading } from 'react-icons/vsc';
 import { AiFillCloseSquare } from 'react-icons/ai';
 import { get } from 'lodash';
+import { FaHandPointUp } from 'react-icons/fa';
 import {
   setVrIsOn,
   selectCondition,
@@ -20,6 +21,7 @@ import Description from './Description';
 
 const Layout = (props) => {
   const { lang, copy } = props;
+  const [hasBeenClickedOnce, setHasBeenClickedOnce] = useState(false);
   const [hasEnteredVrMode, setHasEnteredVrMode] = useState(false);
   const [denyButton, setDenyButton] = useState(false);
   const [allowButton, setAllowButton] = useState(false);
@@ -43,6 +45,8 @@ const Layout = (props) => {
    * Enter VR mode
    */
   const handleEnterVrMode = () => {
+    document.getElementById('footer').style.display = 'none';
+    // TODO: sgfsgf
     setHasEnteredVrMode(true);
   };
 
@@ -52,6 +56,7 @@ const Layout = (props) => {
    * Close the VR full screen ?
    */
   const handleExitVrMode = () => {
+    document.getElementById('footer').style.display = 'block';
     const aScene = document.querySelector('a-scene');
 
     if (aScene) {
@@ -176,7 +181,7 @@ const Layout = (props) => {
      */
 
   return (
-    <div className={`Layout ${vrModeEnabledClassMod}`}>
+    <div className={`Layout ${vrModeEnabledClassMod}`} id="layout">
       <button
         className={`exit-vr-mode-button ${vrModeEnabledClassMod}`}
         type="button"
@@ -190,16 +195,26 @@ const Layout = (props) => {
         id="top-controls"
       >
         {appearDescription && (
+          <FaHandPointUp
+            className={`ConditionSelector__pointer ${
+              hasBeenClickedOnce ? '--hide' : ''
+            }`}
+          />
+        )}
+        {appearDescription && (
           <ConditionSelector
             copy={copy}
             lang={lang}
             conditions={props.conditions}
             handleConditionSelect={props.selectCondition}
+            setHasBeenClickedOnce={setHasBeenClickedOnce}
           />
         )}
         <div className="rhs" id="vr-share-container">
           {appearDescription && (
             <SocialShare
+              copy={copy}
+              lang={lang}
               isMobile={props.application.isMobile}
               setInfoIsVisible={props.setInfoIsVisible}
             />
@@ -208,6 +223,7 @@ const Layout = (props) => {
         </div>
       </div>
       <Gallery
+        appearDescription={appearDescription}
         cities={props.cities}
         condition={props.conditions.condition}
         vrIsOn={vrIsOnRender}
@@ -231,7 +247,7 @@ const Layout = (props) => {
         setInfoIsVisible={props.setInfoIsVisible}
         infoIsVisible={props.application.infoIsVisible}
       />
-      <VscLoading className="loading-spinner" />
+      <VscLoading id="loading-spinner" className="loading-spinner" />
       {appearDescription && (
         <Description
           copy={copy}

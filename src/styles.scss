@@ -59,6 +59,18 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 }
 
+@keyframes bounce-finger {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(30%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 .exit-vr-mode-button {
   position: fixed;
   z-index: 999999;
@@ -87,8 +99,8 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100vh !important;
+    width: 100vw !important;
 
     .TopControls,
     .CitySelector {
@@ -98,7 +110,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
   @include mobile {
     min-height: 70vh;
-    height: 75vh;
+    height: 85vh;
   }
 
   @include mobile_landscape {
@@ -141,7 +153,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
 .Gallery {
   position: relative;
-  height: 100%;
+  height: 100vh;
   opacity: 0;
   z-index: 1;
 
@@ -613,15 +625,16 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 }
 
 .ConditionSelector {
-  max-width: 10rem;
+  // max-width: 60%;
   color: white;
   font-weight: bold;
   letter-spacing: 1px;
-  overflow: hidden;
+  overflow-y: hidden;
   max-height: 4.5rem;
   -webkit-transition: max-height 0.25s linear 0.5s;
   -o-transition: max-height 0.25s linear 0.5s;
   transition: max-height 0.25s linear 0.5s;
+  position: relative;
 
   &.--isOpen {
     -webkit-transition: max-height 0s linear 0s;
@@ -635,7 +648,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
   }
 
   @include tiny-mobile {
-    max-width: 9rem;
+    // max-width: 9rem;
     font-size: 0.8rem;
   }
 
@@ -697,13 +710,15 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       margin: 0;
       cursor: pointer;
       list-style: none;
-      text-transform: capitalize;
       @include button-padding;
-      // background: rgba(14, 14, 14, 0.4);
       opacity: 0;
       -webkit-transition: opacity 0.15s ease-out;
       -o-transition: opacity 0.15s ease-out;
       transition: opacity 0.15s ease-out;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
 
       @include tiny-mobile {
         font-size: 0.8rem;
@@ -817,6 +832,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
 
       @include mobile {
         font-size: 1rem;
+        margin-bottom: 0.5rem;
       }
 
       @include mobile_landscape {
@@ -832,6 +848,7 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
     p {
       @include mobile {
         font-size: 0.75rem;
+        margin-bottom: 0.25rem;
       }
 
       @include mobile_landscape {
@@ -884,16 +901,13 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
       justify-content: center;
 
       .icon {
-        // margin: 0 0 1rem 0;
+        height: 4rem;
+        display: block;
+        margin: 0 0 1rem 0;
 
-        svg {
-          font-size: 4rem;
-
-          @include mobile {
-            font-size: 3rem;
-          }
+        @include mobile {
+          display: none;
         }
-
         @include mobile_landscape {
           display: none;
         }
@@ -928,6 +942,10 @@ $color-backdrop-super-light: rgba(255, 255, 255, 0.1);
         color: #2dadca;
         -webkit-box-shadow: 2px 5px 16px 0px rgba(0255, 255, 255, 0.1);
         box-shadow: 2px 5px 16px 0px rgba(0255, 255, 255, 0.1);
+      }
+
+      @include mobile {
+        margin: 1rem 0 0 0;
       }
 
       @include mobile_landscape {
@@ -1147,11 +1165,8 @@ html.a-fullscreen {
   transition-delay: 3.5s;
 
   @include mobile_landscape {
+    max-height: 55%;
     width: 95%;
-  }
-
-  &.--cataracts {
-    transition-delay: 1s;
   }
 
   &.--intro-visible {
@@ -1203,10 +1218,16 @@ html.a-fullscreen {
 
     @include mobile {
       padding: 1rem;
+      justify-content: flex-start;
+      overflow: scroll;
+      max-height: 13rem;
     }
 
     @include mobile_landscape {
       padding: 0.5rem;
+      justify-content: flex-start;
+      overflow: scroll;
+      max-height: 7rem;
     }
   }
 
@@ -1243,4 +1264,57 @@ html.a-fullscreen {
 h1 {
   visibility: hidden;
   position: fixed;
+}
+
+.ConditionSelector__pointer {
+  font-size: 3rem;
+  fill: white;
+  position: absolute;
+  left: 5rem;
+  top: 5rem;
+  animation: bounce-finger 1s infinite;
+  transform: translateY(0%);
+
+  &.--hide {
+    display: none;
+  }
+
+  @include mobile {
+    left: 5rem;
+    font-size: 2rem;
+    top: 4rem;
+  }
+
+  @include mobile_landscape() {
+    font-size: 2rem;
+    left: 5rem;
+    top: 3rem;
+  }
+}
+
+.footer-overide {
+  position: relative !important;
+  transform: translateY(-15vh) !important;
+  z-index: 99 !important;
+  padding: 50px 20px 0px 20px !important;
+}
+
+.layout-overide {
+  height: 100vh !important;
+}
+
+.city-selector-overide {
+  transform: translateX(-50%) translateY(-15vh) !important;
+
+  @include mobile_landscape {
+    transform: translateX(-50%) translateY(-10vh) !important;
+  }
+}
+
+.intro-overide {
+  transform: translateY(-10vh) !important;
+}
+
+.description-overide {
+  top: 40% !important;
 }

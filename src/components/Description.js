@@ -38,6 +38,7 @@ export default (props) => {
   return (
     <div
       className={`Description ${isVisibleClassMod} --${condition}`}
+      id="description"
       ref={node}
     >
       <div

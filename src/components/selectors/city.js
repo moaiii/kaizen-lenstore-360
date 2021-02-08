@@ -12,7 +12,7 @@ export default (props) => {
   const [hoverOverButton, setHoverOverButton] = useState('');
 
   return (
-    <div className="CitySelector">
+    <div className="CitySelector" id="city-selector">
       <button
         style={{
           opacity:

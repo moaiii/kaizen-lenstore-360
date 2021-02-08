@@ -119,7 +119,7 @@ const Header = ({ copy, isDesktop, lang }) => {
   return (
     <Wrapper>
       <Logo href={domain} title="Lenstore">
-        <img src={icons[`lenstore${locale}`]} alt="Lenstore" />
+        <img src={icons[`lenstore${lang}`]} alt="Lenstore" />
       </Logo>
       <Nav open={dropdownOpen}>
         <NavItem

@@ -27,6 +27,12 @@
     "es": "es_ES",
     "de": "de_DE"
   },
+  "ogImage": {
+    "en": "https://d13st7rn2geio4.cloudfront.net/og/en.png",
+    "it": "https://d13st7rn2geio4.cloudfront.net/og/it.png",
+    "es": "https://d13st7rn2geio4.cloudfront.net/og/es.png",
+    "de": "https://d13st7rn2geio4.cloudfront.net/og/de.png"
+  },
   "twitter": "Lenstore",
   "breadcrumb": {
     "en": "360-view",
@@ -220,73 +226,73 @@
       },
       "condition": {
         "name": "afección",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "afección"
       },
       "deuteranopia": {
-        "name": "deuteranopía",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "name": "daltonismo",
+        "description": "El daltonismo es la forma más común de deficiencia de color en el mundo y se caracteriza por la incapacidad de distinguir los pigmentos rojos y verdes."
       },
       "macular degeneration": {
         "name": "degeneración macular",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "La degeneración macular relacionada con la edad tiende a empeorar con el tiempo y es la principal causa de pérdida de visión grave y permanente en personas mayores de 60 años. La afección se produce cuando la mácula, la pequeña porción central de la retina, se desgasta, y la persona comienza a presentar síntomas como visión oscura y borrosa y reducción en la capacidad visual."
       },
       "cataracts": {
         "name": "cataratas",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Las cataratas ocurren cuando el cristalino del ojo se nubla, y la persona tiene la sensación de mirar a través de una ventana helada o con niebla. Los síntomas se desarrollan con el tiempo y también pueden incluir visión borrosa, aumento del brillo, dificultad para ver de noche, cambios de prescripción e incluso visión doble en uno de los ojos."
       },
       "eye floaters": {
         "name": "miodesopsia",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Es común que los flotadores oculares o miodesopsias no causen ningún daño y que se perciban simplemente como manchas, anillos o líneas en forma de red que se mueven a través del campo visual. Se ven comúnmente como objetos ubicados frente a los ojos, cuando en realidad están en el ojo. Las miodesopsias a veces pueden ser un signo de otro problema de salud o afección ocular."
       },
       "glaucoma": {
         "name": "glaucoma",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "El glaucoma ocurre cuando el nervio óptico se daña debido a una acumulación de líquido en el ojo que hace que aumente la presión. Si bien existen varios tipos, el glaucoma de ángulo abierto es el más común y los síntomas pueden desarrollarse a un ritmo tan lento que la persona puede experimentar pérdida de la visión periférica incluso antes de darse cuenta del problema. Sin embargo, si se dan síntomas, estos pueden incluir visión borrosa o la presencia de círculos con los colores del arcoiris alrededor de las luces brillantes. Esta afección ocular generalmente afecta a ambos ojos, aunque a menudo es peor en uno. En ocasiones pueden presentarse síntomas más intensos, como dolor ocular, dolores de cabeza, náuseas y ojos rojos."
       },
       "tunnel vision": {
         "name": "visión de túnel",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "La visión de túnel ocurre cuando la persona pierde su visión periférica, lo que hace que la vista se restrinja a un área central, como si estuviera en un túnel. Esta afección ocular puede ocurrir por un nervio óptico dañado, por lo que el glaucoma es una de las causas comunes. Algunas afecciones oculares pueden provocar la visión de túnel, como la retinitis pigmentosa, un trastorno poco común que se transmite de padres a hijos."
       },
       "night blindness": {
         "name": "ceguera nocturna",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "También conocida como nictalopía, esta afección ocular causa dificultad para ver de noche o en entornos con poca luz. La afección puede ocurrir por varias razones, incluidas las cataratas y la retinosis pigmentaria; una condición que se presenta cuando pigmento oscuro se acumula en la retina y crea una visión de túnel."
       }
     },
     "it": {
       "normal": {
         "name": "normale",
-        "descrition": ""
+        "descrition": "normale"
       },
       "condition": {
         "name": "condizione",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "condizione"
       },
       "deuteranopia": {
         "name": "daltonismo",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "la deuteranopia è il tipo più comune di daltonismo al mondo, comunemente conosciuta come daltonismo rosso-verde poiché chi ne soffre è incapace di distinguere pigmenti rossi e pigmenti verdi. "
       },
       "macular degeneration": {
         "name": "degenerazione maculare",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "La degenerazione maculare dovuta all'età è una patologia che tende a peggiorare nel corso del tempo, ed è causa di perdita visiva in molti adulti over 60. Questa condizione si presenta quando la macula (la parte centrale della retina) si consuma, causando alcuni sintomi tra cui vista offuscata ed una ridotta abilità visiva."
       },
       "cataracts": {
         "name": "cataratta",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "La cataratta è caratterizzata da occhi annebbiati e vista offuscata. Per descrivere come vedono coloro che sono affetti da questa condizione, spesso si fa riferimento alla visuale che si può avere attraverso una finestra ghiacciata o appannata. I sintomi più comuni sono: visione offuscata, aumento del bagliore, difficoltà nel vedere al buio e vista doppia da un occhio."
       },
       "eye floaters": {
-        "name": "miodesopsie dell'occhio",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "name": "miodesopsie",
+        "description": "Coloro affetti da questa condizione percepiscono degli oggetti galleggianti simili ad anelli o ragnatele che si muovono nel campo visivo. Sebbene siano percepiti come oggetti esterni all'occhi, le miodesopsie (chiamate anche mosche volanti) sono all'interno dell'occhio e spesso possono essere sintomo di un'altra condizione di salute."
       },
       "glaucoma": {
         "name": "glaucoma",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Il glaucoma deriva da un danno al nervo ottico, dovuto ad un accumulo di fluido nell'occhio, che si traduce in un aumento di pressione. Sebbene vi siano diverse forme di questa condizione, il glaucoma primario and angolo aperto è la più comune, ed i sintomi si presentano lentamente e gradualmente. Infatti, è possibile sperimentare le conseguenze del glaucoma (perdita della visione periferica), ancora prima di esserne al corrente. Tuttavia, i sintomi includono visione offuscata e visione di cerchi colorati intorno a luci intense."
       },
       "tunnel vision": {
         "name": "visione a tunnel",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Questo disturbo si verifica quando vi è una perdita della visione periferica. Questo costringe la vista a focalizzarsi solo su un'area specifica. La visione a tunnel può essere causata da un danno al nervo ottico o da retinite pigmentosa, un disturbo ereditario raro."
       },
       "night blindness": {
         "name": "cecità notturna",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Conosciuta anche come nictalopia, coloro affetti da questa condizione sperimentano difficoltà nel vedere in ambienti con luce soffusa ed al buio. Le cause di questo disturbo sono varie, tra cui altre condizioni come cataratta e retinite pigmentosa; condizione che si presenta quando vi è un accumulo di pigmenti scuri nella retina, creando una visione a tunnel."
       }
     },
     "de": {
@@ -296,35 +302,35 @@
       },
       "condition": {
         "name": "kondition",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "kondition"
       },
       "deuteranopia": {
         "name": "grünblindheit",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Grünblindheit ist die am häufigsten vorkommende Farbfehlsichtigkeit der Welt und ist von dem Unvermögen zwischen roten und grünen Pigmenten zu unterscheiden, gekennzeichnet."
       },
       "macular degeneration": {
         "name": "makuladegeneration",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Altersbedingte Makuladegeneration tendiert dazu, schlechter über die Jahre zu werden und ist die führende Ursache des vollständigen Sichtverlustes von Menschen über 60. Die Kondition tritt auf, wenn das Makula, der kleine mittige Teil der Netzhaut, sich abnutzt. Symptome sind eine dunkle und verschwommene Sicht, sowie eine Reduzierung der Sehfähigkeit."
       },
       "cataracts": {
         "name": "katarakte",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Katarakte sind das Ergebnis einer auftretenden Trübheit der Augen, das Erleben ist oft verglichen mit der Sicht durch ein frostiges oder vernebeltes Fenster. Symptome entwickeln sich mit der Zeit und können eine verschwommene Sicht beinhalten, eine erhöhte Blendung, Schwierigkeiten bei Nacht zu sehen, eine Änderung der Rezeptverschreibung oder sogar das Doppelsehen."
       },
       "eye floaters": {
         "name": "glaskörpertrübung",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Oft harmlos, sieht eine Glaskörpertrübung oft wie Netz- oder Ringpunkte aus, die sich durch das Sichtfeld bewegen. Üblicherweise sieht man sie als Objekte vor dem Auge, wenn sie eigentlich in dem Auge sind. Eine Glaskörpertrübung kann manchmal ein Zeichen von einem anderen gesundheitlichen Problem, oder einer anderen Augenerkrankung sein."
       },
       "glaucoma": {
-        "name": "grüner star",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "name": "grüner Star",
+        "description": "Grüner Star stammt von der Beschädigung des optischen Nerves im Auge, was oft dazu führt, dass Flüssigkeit sich im Auge sammelt, was wiederum zu einer Druckerhöhung führt.  Obwohl es verschiedene Arten der Kondition gibt, ist das Weitwinkelglaukom das gängigste. Symptome können sich sehr langsam bilden und die periphere Sicht kann gänzlich verloren sein, bevor man sich dem Problem bewusst wird. Falls Sie jedoch Symptome verspüren, können diese eine verschwommene Sicht, oder das Sehen von regenbogenfarbenen Kreisen um helle Lichter, sein. Diese Augenerkrankung beeinträchtigt normalerweise beide Augen, jedoch ist oft ein Auge besonders stark betroffen. Vereinzelt können schwerwiegendere Symptome auftreten, wie intensiver Augenschmerz, Kopfschmerzen, Schwindel oder rote Augen."
       },
       "tunnel vision": {
         "name": "tunnelblick",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Der Tunnelblick tritt auf, wenn man die periphere Sicht verliert, was dazu führt, dass die Sicht sich auf eine bestimmte mittige Gegend verringert, wovon auch der Name stammt. Die Augenerkrankung kann von einem beschädigtem optischen Nerv kommen, was grüner Star oft als Ursache herausstellt. Manche Augenerkrankungen können in einem Tunnelblick resultieren, wie die  Retinitis Pigmentosa, eine seltene Erkrankung, die von den Eltern an Kinder weitergegeben wird."
       },
       "night blindness": {
         "name": "nachtblindheit",
-        "description": "Chantey fathom draft ballast pirate tackle coffer strike colors capstan weigh anchor. Davy Jones' Locker no prey, no pay keelhaul landlubber or just lubber rutters trysail heave down nipper stern measured fer yer chains."
+        "description": "Auch bekannt als Nyktalopie, macht diese Augenerkrankung es schwierig für Menschen in schwach beleuchteten Gegenden und bei Nacht zu sehen. Die Erkrankung kann verschiedene Ursachen haben, so wie Katarakte und Retinitis Pigmentosa, eine Erkrankung, bei der sich dunkle Pigmente in der Netzhaut sammeln und einen Tunnelblick kreieren. "
       }
     }
   },
@@ -346,8 +352,8 @@
     "es": {
       "title": "Vista a 360 grados: observa el mundo con estas afecciones oculares",
       "blurb1": "Si bien todos vivimos en el mismo mundo, no lo vemos de la misma manera.",
-      "blurb2": "Desde la deficiencia de color hasta el glaucoma, pasando por la ceguera nocturna, la visión de túnel, la degeneración macular o la cataratas, hay una gran cantidad de afecciones oculares. Para crear conciencia sobre ello, hemos combinado vistas de 360 ​​grados de algunos de los lugares más icónicos del mundo con filtros de cada afección ocular para que experimentes la forma como otros los ven.",
-      "blurb3": "* Tenga en cuenta que todas las imágenes fueron tomadas antes de COVID-19",
+      "blurb2": "Desde la deficiencia de color hasta el glaucoma, pasando por la ceguera nocturna, la visión de túnel, la degeneración macular o las cataratas, hay una gran cantidad de afecciones oculares. Para crear conciencia sobre ello, hemos combinado vistas de 360 ​​grados de algunos de los lugares más icónicos del mundo con filtros de cada afección ocular para que experimentes la forma como otros los ven.",
+      "blurb3": "* Ten en cuenta que todas las imágenes fueron tomadas antes del COVID-19",
       "cta": "Explora"
     },
     "de": {

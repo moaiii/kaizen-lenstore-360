@@ -115,12 +115,9 @@ const App = () => {
         <meta property="og:description" content={copy.description[lang]} />
         <meta property="og:url" content={copy.url} />
         <meta property="og:locale" content={copy.ogLocale[lang]} />
-        <meta property="og:image" content={`${copy.url}/opengraph.png`} />
-        <meta
-          property="og:image:secure_url"
-          content={`${copy.url}/opengraph.png`}
-        />
-        <meta name="twitter:image" content={`${copy.url}/opengraph.png`} />
+        <meta property="og:image" content={copy['ogImage'][lang]} />
+        <meta property="og:image:secure_url" content={copy['ogImage'][lang]} />
+        <meta name="twitter:image" content={copy['ogImage'][lang]} />
         <meta name="twitter:site" content={`@${copy.twitter}`} />
         <meta name="twitter:title" content={copy['meta-title'][lang]} />
         <meta name="twitter:description" content={copy.description[lang]} />
@@ -136,7 +133,9 @@ const App = () => {
         ))}
       </Helmet>
       <ThemeProvider theme={theme}>
-        <Header copy={copy} isDesktop={isDesktop} lang={lang} />
+        {window.mobileCheck() === false && (
+          <Header copy={copy} isDesktop={isDesktop} lang={lang} />
+        )}
         <Body>
           <Provider store={store}>
             <Root copy={copy} lang={lang} />
